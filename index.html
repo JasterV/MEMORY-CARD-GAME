@@ -12,24 +12,35 @@
   </head>
   <body>
     
-    <h2>Guess the right card</h2>
     <div  class="cards-row">
       <div class="left-card card">      
         <div class="choose-username">
-          
+          <h1>Choose a username</h1>
+          <input id="username" name="username">
+          <button>Play</button>
         </div>
         
-         <div id="images-grid" class="images-grid">
-        
+         <div id="images-grid" class="hide images-grid">
+              
         </div>
         
-        <div class="congrats-container">
-          
+        <div class="congrats-container hide">
+          <h1>
+            YOU WIN!
+          </h1>
+          <h3 id="congrats.">
+            You won in ... seconds
+          </h3>
         </div>
       </div>
      
       <div id="score-container" class="card score-container">
-        
+        <h2>
+          User Scores
+        </h2>
+        <div class="user-scores">
+          
+        </div>
       </div>
     </div>
     

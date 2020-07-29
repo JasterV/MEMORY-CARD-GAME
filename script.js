@@ -21,7 +21,7 @@ let imgSrc = [
   },
   { 
     pairId: 5,
-    src: "https://cdn.glitch.com/56d96ce9-5171-477f-8560-558ec3af0051%2Fdiamonds-9.PNG?v=1596020736324https://cdn.glitch.com/56d96ce9-5171-477f-8560-558ec3af0051%2Fclover-3.PNG?v=1596020832177",
+    src: "https://cdn.glitch.com/56d96ce9-5171-477f-8560-558ec3af0051%2Fdiamonds-9.PNG?v=1596020736324",
   },
   { 
     pairId: 6,
@@ -37,6 +37,16 @@ let imgSrc = [
   },
 ];
 
+const players = {
+  "victor" : {
+    score: 20,
+  },
+  "alex": {
+    score: 30,
+  }
+}
+
+
 let imgDivArray = createGridContentArray(imgSrc);
 
 imgDivArray.forEach(container => {
@@ -45,12 +55,13 @@ imgDivArray.forEach(container => {
   });
 });
 
-let shuffledImgs = shuffle(imgDivArray);
+shuffle(imgDivArray);
 
 let imgsGrid = document.getElementById("images-grid");
-shuffledImgs.forEach((img) => {
+imgDivArray.forEach((img) => {
   imgsGrid.appendChild(img);
 });
+
 
 /* ------------ FUNCTIONS -----------------*/
 
@@ -72,7 +83,5 @@ function doubleContent(arr) {
 }
 
 function shuffle(array) {
-  let newArray = Array.from(array);
-  newArray.sort(() => Math.random() - 0.5);
-  return newArray;
+  array.sort(() => Math.random() - 0.5);
 }
