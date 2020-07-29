@@ -2,7 +2,7 @@ let imgSrc = [
   {
     pairId: 0,
     src:
-      "https://cdn.glitch.com/56d96ce9-5171-477f-8560-558ec3af0051%2Fclover-a.png?v=1596020454798"
+      "https://cdn.glitch.com/56d96ce9-5171-477f-8560-558ec3af0051%2Fclover-a.svg?v=1596056821579"
   },
   {
     pairId: 1,
@@ -12,7 +12,7 @@ let imgSrc = [
   {
     pairId: 2,
     src:
-      "https://cdn.glitch.com/56d96ce9-5171-477f-8560-558ec3af0051%2Fclover-3.PNG?v=1596020832177"
+      "https://cdn.glitch.com/56d96ce9-5171-477f-8560-558ec3af0051%2Fclover-3.svg?v=1596056909900"
   },
   {
     pairId: 3,
