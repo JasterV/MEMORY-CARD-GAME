@@ -92,10 +92,6 @@ h2{
   position: relative;
 }
 
-.user-scores {
-  padding-top: 1.3rem;
-}
-
 .choose-username {
   display: flex;
   flex-direction: column;
@@ -207,15 +203,16 @@ strong {
   text-shadow: 0 3px 2px hsla(208, 80%, 45%, 1);
 }
 
-
-.user-scores .score-title {
-  color: hsla(208, 80%, 60%, 1);
-  text-align: center;
-}
-
 .user-scores {
-  transform: skew(0deg, -2deg);
+  text-align: center;
+  padding-top: 1.3rem;
 }
+
+
+.user-scores h2 {
+  color: hsla(208, 80%, 60%, 1);
+}
+
 
 .ribbon-tail {
   position: absolute;
