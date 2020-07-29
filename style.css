@@ -84,10 +84,9 @@ h2{
 }
 
 .score-container {
-  min-width: 200px;
-  max-width: 420px;
-  width: 20%;
+  min-width: 240px;
   margin-left: 2rem;
+  position: relative;
 }
 
 .user-scores {
@@ -164,3 +163,10 @@ strong {
   color: #228be6;
 }
 
+.fa-trophy {
+  font-size: 6em;
+  position: absolute;
+  top: -96px;
+  left: 50%;
+  transform: translateX(-50%);
+}
