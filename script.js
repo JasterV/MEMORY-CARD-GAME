@@ -53,6 +53,7 @@ let currentUser = "";
 let startTime;
 let scoresController = scoreBarController('user-scores');
 
+
 imgDivArray.forEach(targetCard => {
   targetCard.addEventListener("click", () => {
     if (isFlipped(targetCard)) {
@@ -115,22 +116,9 @@ playAgainBtn.addEventListener("click", () => {
   document.getElementById("username").value = "";
 });
 
-/* ------------ FUNCTIONS -----------------*/
-
-function isGameEnd(discoveredCards, cards) {
-  return discoveredCards.length === cards.length;
-}
-
-function finishGame(username) {
-  let finalTimeSpan = document.getElementById("user-seconds");
-  let totalSeconds = (Date.now() - startTime) / 1000;
-  finalTimeSpan.textContent = `${totalSeconds} seconds`;
-  
-  scoresController.setUserTime(username, totalSeconds);
-
-  imgsGrid.classList.add("hide");
-  congratsDiv.classList.remove("hide");
-}
+/*--------------------------------------------------*/
+/*-------------------- OBJECTS ---------------------*/
+/*--------------------------------------------------*/
 
 function scoreBarController(barId) {
   let users = [];
@@ -171,6 +159,26 @@ function createUserScoreDiv(username) {
   container.className = "user-score-container";
   container.innerHTML = `<h2>${username}</h2> <p>Currently playing...</p>`;
   return container;
+}
+
+/*--------------------------------------------------*/
+/*----------------- UTIL FUNCTIONS -----------------*/
+/*--------------------------------------------------*/
+
+
+function isGameEnd(discoveredCards, cards) {
+  return discoveredCards.length === cards.length;
+}
+
+function finishGame(username) {
+  let finalTimeSpan = document.getElementById("user-seconds");
+  let totalSeconds = (Date.now() - startTime) / 1000;
+  finalTimeSpan.textContent = `${totalSeconds} seconds`;
+  
+  scoresController.setUserTime(username, totalSeconds);
+
+  imgsGrid.classList.add("hide");
+  congratsDiv.classList.remove("hide");
 }
 
 function areEqualCards(card1, card2) {
