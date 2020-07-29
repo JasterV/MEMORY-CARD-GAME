@@ -54,12 +54,15 @@ let imgsGrid = document.getElementById("images-grid");
 
 imgDivArray.forEach(container => {
   container.addEventListener("click", () => {
-    container.classList.toggle("flipped-cell");
+    if(isFlipped(container)) {
+        container.classList.remove("flipped-cell");
+    }
   });
 });
 
-playBtn.addEventListener("click", () =>{
-  chooseUserDiv.classList.add("hide");
+playBtn.addEventListener("click", () => {
+  
+  
   
   shuffle(imgDivArray);
   imgsGrid.innerHTML = "";
@@ -67,8 +70,13 @@ playBtn.addEventListener("click", () =>{
     imgsGrid.appendChild(img);
   });
   
+  chooseUserDiv.classList.add("hide");
   imgsGrid.classList.remove("hide");
-  setTimeout(()=>{  }, 3000);
+  
+  setTimeout(()=>{  
+    flipCards(imgDivArray);
+  }, 3000);
+  
 });
 
 
@@ -78,7 +86,11 @@ playBtn.addEventListener("click", () =>{
 
 /* ------------ FUNCTIONS -----------------*/
 
-function flippCards(cards) {
+function isFlipped(card) {
+  return card.classList.contains("flipped-cell");
+}
+
+function flipCards(cards) {
   cards.forEach(card => card.classList.add("flipped-cell"));
 }
 

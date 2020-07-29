@@ -107,10 +107,15 @@ input[type="text"] {
   border: 2px solid #228be6;
 }
 
-#username::after {
-  content: "Username";
+.username-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.placeholder {
   position: absolute;
-  width: 100%;
+  pointer-events: none;
 }
 
 .game-button {
