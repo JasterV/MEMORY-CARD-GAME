@@ -51,8 +51,7 @@ let imgDivArray = createGridContentArray(imgSrc);
 let discoveredCards = [];
 let currentUser = "";
 let startTime;
-let scoresController = scoreBarController('user-scores');
-
+let scoresController = scoreBarController("user-scores");
 
 imgDivArray.forEach(targetCard => {
   targetCard.addEventListener("click", () => {
@@ -89,9 +88,9 @@ playBtn.addEventListener("click", () => {
   if (isValidUsername(username)) {
     currentUser = username;
     startTime = Date.now();
-    
+
     scoresController.createPlayingUser(username);
-    
+
     shuffle(imgDivArray);
 
     imgsGrid.innerHTML = "";
@@ -124,22 +123,24 @@ function scoreBarController(barId) {
   let scoresBar = document.getElementById(barId);
 
   return {
-    hasUser(username){
-       let userContainer = document.querySelector(
-          `.div[data-username=${username}]`
-        );  
+    getUser(username) {
+      return document.querySelector(`[data-username=${username}]`);
+    },
+
+    hasUser(username) {
+      let userContainer = this.getUser(username);
       return userContainer !== null;
     },
-    
+
     createPlayingUser(username) {
       if (this.hasUser(username)) {
-        let userContainer = document.querySelector(`.div[data-username=${username}]`);  
+        let userContainer = this.getUser(username);
         userContainer.remove();
         userContainer.lastElementChild.textContent = "Currently playing...";
-        scoresBar.insertAdjacentElement("afterbegin", userContainer);   
-      } else {     
+        scoresBar.insertAdjacentElement("afterbegin", userContainer);
+      } else {
         let userContainer = createUserScoreDiv(username);
-        if(scoresBar.childElementCount == 5) {
+        if (scoresBar.childElementCount == 5) {
           scoresBar.lastElementChild.remove();
         }
         scoresBar.insertAdjacentElement("afterbegin", userContainer);
@@ -147,10 +148,10 @@ function scoreBarController(barId) {
     },
 
     setUserTime(username, seconds) {
-      let userContent = document.querySelector(
-          `.user-score-container[data-username=${username}] p`
-        );
-        userContent.textContent = `${seconds} seconds`;
+      if (this.hasUser(username)) {
+        let userContainer = this.getUser(username);
+        userContainer.lastElementChild.textContent = `${seconds} seconds`;
+      }
     }
   };
 }
@@ -163,9 +164,8 @@ function createUserScoreDiv(username) {
 }
 
 /*--------------------------------------------------*/
-/*----------------- UTIL FUNCTIONS -----------------*/
+/*----------------- USEFULL FUNCTIONS --------------*/
 /*--------------------------------------------------*/
-
 
 function isGameEnd(discoveredCards, cards) {
   return discoveredCards.length === cards.length;
@@ -175,7 +175,7 @@ function finishGame(username) {
   let finalTimeSpan = document.getElementById("user-seconds");
   let totalSeconds = (Date.now() - startTime) / 1000;
   finalTimeSpan.textContent = `${totalSeconds} seconds`;
-  
+
   scoresController.setUserTime(username, totalSeconds);
 
   imgsGrid.classList.add("hide");
@@ -220,17 +220,17 @@ function shuffle(array) {
 }
 
 // FADE PLACEHOLDER IF INPUT IS EMPTY
-var usernameInput = document.getElementById("username")
-var placeholder = document.getElementById("placeholder")
+var usernameInput = document.getElementById("username");
+var placeholder = document.getElementById("placeholder");
 
 usernameInput.addEventListener("focusin", () => {
   if (usernameInput.value == "") {
-    placeholder.style.opacity = "0"
+    placeholder.style.opacity = "0";
   }
-})
+});
 
 usernameInput.addEventListener("focusout", () => {
   if (usernameInput.value == "") {
-    placeholder.style.opacity = "1"
+    placeholder.style.opacity = "1";
   }
-})
+});

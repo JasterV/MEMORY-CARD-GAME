@@ -22,6 +22,7 @@ h2{
 
 .cards-row {
   display: flex;
+  min-height: 400px;
   height: 70%;
   width: 100%;
   justify-content: center;
@@ -54,6 +55,7 @@ h2{
   justify-content: center;
   align-content: center;
 }
+
 .congrats-container{
   display:flex;
   height:100%;
@@ -205,7 +207,13 @@ strong {
   text-shadow: 0 3px 2px hsla(208, 80%, 45%, 1);
 }
 
-.user-score {
+
+.user-scores .score-title {
+  color: hsla(208, 80%, 60%, 1);
+  text-align: center;
+}
+
+.user-scores {
   transform: skew(0deg, -2deg);
 }
 
@@ -215,12 +223,4 @@ strong {
   top: 19px;
   z-index: 1;
   width: 35px;
-}
-
-.user-scores h2 {
-  color: hsla(208, 80%, 60%, 1);
-}
-
-.user-scores {
-  text-align: center;
 }
