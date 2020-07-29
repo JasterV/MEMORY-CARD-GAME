@@ -235,8 +235,12 @@ strong {
 
 .fa-stopwatch, .fa-mouse-pointer {
   font-size: 18px;
-  margin-right: 3px;
+  margin-right: 2px;
   color: hsla(208, 80%, 50%, 0.3);
+}
+
+.fa-mouse-pointer {
+  margin-left: 6px;
 }
 
 @media (max-height: 865px) {

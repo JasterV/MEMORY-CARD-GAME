@@ -154,10 +154,11 @@ function scoreBarController(barId) {
     setUserTime(username, seconds) {
       if (this.hasUser(username)) {
         let userContainer = this.getUser(username);
-        userContainer.lastElementChild.innerHTML = `<i class="fas fa-stopwatch"></i> ${Math.floor(seconds)} seconds`;
-        userContainer.appendChild.innerHTML = `<i class="fas fa-mouse-pointer"></i> ${tries} tries`;
+        userContainer.lastElementChild.innerHTML = `<i class="fas fa-stopwatch"></i> ${Math.floor(seconds)} seconds`
+                                                    + ` <i class="fas fa-mouse-pointer"></i> ${tries} tries`;
       }
     }
+    
   };
 }
 
