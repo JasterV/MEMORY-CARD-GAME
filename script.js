@@ -51,6 +51,7 @@ let imgDivArray = createGridContentArray(imgSrc);
 let discoveredCards = [];
 let currentUser = "";
 let startTime;
+let scoresController = scoreBarController('user-scores');
 
 imgDivArray.forEach(targetCard => {
   targetCard.addEventListener("click", () => {
@@ -87,7 +88,9 @@ playBtn.addEventListener("click", () => {
   if (isValidUsername(username)) {
     currentUser = username;
     startTime = Date.now();
-
+    
+    scoresController.setUserPlaying(username);
+    
     shuffle(imgDivArray);
 
     imgsGrid.innerHTML = "";
@@ -114,15 +117,6 @@ playAgainBtn.addEventListener("click", () => {
 
 /* ------------ FUNCTIONS -----------------*/
 
-function indexOfPlayer(name, players) {
-  for (let i = 0; i < players.length; i++) {
-    if (players[i].username === name) {
-      return i;
-    }
-  }
-  return undefined;
-}
-
 function isGameEnd(discoveredCards, cards) {
   return discoveredCards.length === cards.length;
 }
@@ -131,6 +125,8 @@ function finishGame(username) {
   let finalTimeSpan = document.getElementById("user-seconds");
   let totalSeconds = (Date.now() - startTime) / 1000;
   finalTimeSpan.textContent = `${totalSeconds} seconds`;
+  
+  scoresController.setUserTime(username, totalSeconds);
 
   imgsGrid.classList.add("hide");
   congratsDiv.classList.remove("hide");
@@ -152,14 +148,18 @@ function scoreBarController(barId) {
         );
         userContent.textContent = "Currently playing...";
       } else {
+        console.log("hola");
         let userContainer = createUserScoreDiv(username);
         scoresBar.insertAdjacentElement("afterbegin", userContainer);
         users.push(username);
       }
     },
 
-    setUserScore(username, score) {
-      
+    setUserTime(username, seconds) {
+      let userContent = document.querySelector(
+          `.user-score-container[data-username=${username}] p`
+        );
+        userContent.textContent = `${seconds} seconds`;
     }
   };
 }
