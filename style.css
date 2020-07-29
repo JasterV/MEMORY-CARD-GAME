@@ -12,7 +12,6 @@ body {
 }
 
 h2 {
-  margin-bottom: 2rem;
   text-align: center;
 }
 
@@ -100,10 +99,10 @@ h2 {
   justify-content: center;
 }
 
-.choose-username h1 {
+.choose-username h1, .congrats-container h1 {
   margin: 0;
   padding-bottom: 1rem;
-  color: hsla(208, 80%, 50%, 0.5);
+  color: hsla(208, 80%, 50%, 0.8);
 }
 
 input[type="text"] {
@@ -163,8 +162,12 @@ input[type="text"]:focus ~ .placeholder {
   box-shadow: 0 0px 0 #1b6fb8;
 }
 
-.game-button i, .fa-undo-alt {
+.fa-undo-alt {
   font-size: 1.5rem;
+}
+
+.fa-gamepad {
+  font-size: 30px;
 }
 
 strong {
@@ -211,6 +214,11 @@ strong {
 
 .user-scores h2 {
   color: hsla(208, 80%, 60%, 1);
+}
+
+.user-scores p {
+  font-weight: bold;
+  color: hsla(208, 80%, 20%, .4);
 }
 
 #user-scores {

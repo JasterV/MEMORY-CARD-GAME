@@ -219,7 +219,7 @@ function shuffle(array) {
   array.sort(() => Math.random() - 0.5);
 }
 
-// FADE PLACEHOLDER IF INPUT IS EMPTY
+// Placeholder fade
 var usernameInput = document.getElementById("username");
 var placeholder = document.getElementById("placeholder");
 
