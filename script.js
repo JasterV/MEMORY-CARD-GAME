@@ -34,12 +34,6 @@ let imgSrc = [
 ];
 
 const players = {
-  "victor" : {
-    score: 20,
-  },
-  "alex": {
-    score: 30,
-  }
 }
 
 let startTime;
@@ -48,6 +42,7 @@ let playBtn = document.getElementById("play");
 let chooseUserDiv = document.querySelector(".choose-username");
 let imgsGrid = document.getElementById("images-grid");
 let congratsDiv = document.querySelector(".congrats-container");
+let playAgainBtn = document.getElementById("play-again-btn");
 
 let imgDivArray = createGridContentArray(imgSrc);
 let discoveredCards = [];
@@ -107,6 +102,13 @@ playBtn.addEventListener("click", () => {
   }
 });
 
+playAgainBtn.addEventListener("click", () => {
+  currentUser = "";
+  
+});
+
+
+
 
 /* ------------ FUNCTIONS -----------------*/
 
@@ -119,6 +121,10 @@ function finishGame(username){
   let finalTimeSpan = document.getElementById("user-seconds");
   let totalSeconds =  (Date.now() - startTime) / 1000;
   finalTimeSpan.textContent = `${totalSeconds} seconds`;
+  
+  players[currentUser] = {
+    seconds: totalSeconds,
+  };
   
   imgsGrid.classList.add("hide");
   congratsDiv.classList.remove("hide");

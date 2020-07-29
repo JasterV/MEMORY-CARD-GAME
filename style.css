@@ -35,6 +35,7 @@ h2{
   box-shadow: 10px 10px 10px black;
   height: 100%;
   padding: 2rem;
+  background: #fafdfe;
 }
 
 .left-card {
@@ -52,6 +53,17 @@ h2{
   grid-template-rows: repeat(4, 1fr);
   justify-content: center;
   align-content: center;
+}
+.congrats-container{
+  display:flex;
+  height:100%;
+  flex-direction: column;
+  align-items:center;
+  justify-content:center;
+}
+
+.congrats-container h3{
+  font-weight: 400;
 }
 
 .cell { 
@@ -99,6 +111,12 @@ input[type="text"] {
   outline: none;
   border-radius: 100px;
   border: 2px solid #228be6;
+  transition: 300ms ease-out;
+}
+
+input[type="text"]:focus {
+  transform: scale(1.2);
+  box-shadow: 0 0 12px rgba(34, 139, 230,.2);
 }
 
 .username-container {
@@ -128,4 +146,8 @@ input[type="text"] {
 .game-button:active {
   transform: translateY(3px);
   box-shadow: 0 0px 0 #1b6fb8;
+}
+
+strong {
+  color: #228be6;
 }
