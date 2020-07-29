@@ -7,7 +7,7 @@ let imgSrc = [
   {
     pairId: 1,
     src:
-      "https://cdn.glitch.com/56d96ce9-5171-477f-8560-558ec3af0051%2Fclover-9.png?v=1596020745882"
+      "https://cdn.glitch.com/56d96ce9-5171-477f-8560-558ec3af0051%2Fclover-9.svg?v=1596057152201"
   },
   {
     pairId: 2,
@@ -17,27 +17,27 @@ let imgSrc = [
   {
     pairId: 3,
     src:
-      "https://cdn.glitch.com/56d96ce9-5171-477f-8560-558ec3af0051%2Fdiamonds-a.PNG?v=1596020457628"
+      "https://cdn.glitch.com/56d96ce9-5171-477f-8560-558ec3af0051%2Fhearts-a.svg?v=1596057450138"
   },
   {
     pairId: 4,
     src:
-      "https://cdn.glitch.com/56d96ce9-5171-477f-8560-558ec3af0051%2Fhearts-6.PNG?v=1596020597172"
+      "https://cdn.glitch.com/56d96ce9-5171-477f-8560-558ec3af0051%2Fhearts-9.svg?v=1596057343693"
   },
   {
     pairId: 5,
     src:
-      "https://cdn.glitch.com/56d96ce9-5171-477f-8560-558ec3af0051%2Fdiamonds-9.PNG?v=1596020736324"
+      "https://cdn.glitch.com/56d96ce9-5171-477f-8560-558ec3af0051%2Fdiamonds-9.svg?v=1596057557539"
   },
   {
     pairId: 7,
     src:
-      "https://cdn.glitch.com/56d96ce9-5171-477f-8560-558ec3af0051%2Fclover-6.png?v=1596020595265"
+      "https://cdn.glitch.com/56d96ce9-5171-477f-8560-558ec3af0051%2Fclover-6.svg?v=1596057225851"
   },
   {
     pairId: 8,
     src:
-      "https://cdn.glitch.com/56d96ce9-5171-477f-8560-558ec3af0051%2Fdiamonds-3.png?v=1596020829948"
+      "https://cdn.glitch.com/56d96ce9-5171-477f-8560-558ec3af0051%2Fdiamonds-3.svg?v=1596057401996"
   }
 ];
 
