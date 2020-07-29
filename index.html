@@ -16,8 +16,8 @@
       <div class="left-card card">      
         <div class="choose-username">
           <h1>Choose a username</h1>
-          <input id="username" name="username">
-          <button>Play</button>
+          <input type="text" id="username" name="username" placeholder="Username" required>
+          <button id="play" class="game-button">Play</button>
         </div>
         
          <div id="images-grid" class="hide images-grid">
@@ -26,10 +26,10 @@
         
         <div class="congrats-container hide">
           <h1>
-            YOU WIN!
+            YOU WIN! 🎉
           </h1>
-          <h3 id="congrats.">
-            You won in ... seconds
+          <h3>
+            You won in <strong id="user-seconds">3</strong> seconds
           </h3>
         </div>
       </div>

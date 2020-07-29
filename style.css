@@ -79,6 +79,7 @@ h2{
 }
 
 .score-container {
+  min-width: 200px;
   width: 20%;
   margin-left: 2rem;
 }
@@ -86,6 +87,45 @@ h2{
 .choose-username {
   display: flex;
   flex-direction: column;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.choose-username h1 {
+  margin: 0;
+  padding-bottom: 1rem;
+}
+
+input[type="text"] {
+  margin: 1.5rem 0;
+  font-size: 1rem;
+  padding: .8rem .5rem;
   text-align: center;
-  
+  outline: none;
+  border-radius: 100px;
+  border: 2px solid #228be6;
+}
+
+#username::after {
+  content: "Username";
+  position: absolute;
+  width: 100%;
+}
+
+.game-button {
+  padding: 1rem 3rem;
+  font-size: 1rem;
+  background: #228be6;
+  color: white;
+  border-radius: 5px;
+  border: 1px solid #1b6fb8;
+  box-shadow: 0 3px 0 #1b6fb8;
+  outline: none;
+  transition: 150ms ease-out;
+}
+
+.game-button:active {
+  transform: translateY(3px);
+  box-shadow: 0 0px 0 #1b6fb8;
 }

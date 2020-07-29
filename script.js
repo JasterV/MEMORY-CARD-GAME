@@ -46,8 +46,11 @@ const players = {
   }
 }
 
-
 let imgDivArray = createGridContentArray(imgSrc);
+let playBtn = document.getElementById("play");
+let chooseUserDiv = document.querySelector(".choose-username");
+let imgsGrid = document.getElementById("images-grid");
+
 
 imgDivArray.forEach(container => {
   container.addEventListener("click", () => {
@@ -55,15 +58,29 @@ imgDivArray.forEach(container => {
   });
 });
 
-shuffle(imgDivArray);
-
-let imgsGrid = document.getElementById("images-grid");
-imgDivArray.forEach((img) => {
-  imgsGrid.appendChild(img);
+playBtn.addEventListener("click", () =>{
+  chooseUserDiv.classList.add("hide");
+  
+  shuffle(imgDivArray);
+  imgsGrid.innerHTML = "";
+  imgDivArray.forEach((img) => {
+    imgsGrid.appendChild(img);
+  });
+  
+  imgsGrid.classList.remove("hide");
+  setTimeout(()=>{  }, 3000);
 });
 
 
+
+
+
+
 /* ------------ FUNCTIONS -----------------*/
+
+function flippCards(cards) {
+  cards.forEach(card => card.classList.add("flipped-cell"));
+}
 
 function createGridContentArray(imgs) {
   let doubled = doubleContent(imgSrc);
