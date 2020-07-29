@@ -233,9 +233,10 @@ strong {
   width: 35px;
 }
 
-.fa-stopwatch {
+.fa-stopwatch, .fa-mouse-pointer {
   font-size: 18px;
   margin-right: 3px;
+  color: hsla(208, 80%, 50%, 0.3);
 }
 
 @media (max-height: 865px) {

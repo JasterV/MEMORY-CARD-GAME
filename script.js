@@ -47,6 +47,8 @@ let imgsGrid = document.getElementById("images-grid");
 let congratsDiv = document.querySelector(".congrats-container");
 let playAgainBtn = document.getElementById("play-again-btn");
 
+let tries = 0;
+
 let imgDivArray = createGridContentArray(imgSrc);
 let discoveredCards = [];
 let currentUser = "";
@@ -60,6 +62,8 @@ imgDivArray.forEach(targetCard => {
 
       if (discoveredCards.length % 2 == 0) {
         discoveredCards.push(targetCard);
+        tries++;
+        console.log(tries)
       } else {
         let lastCard = discoveredCards[discoveredCards.length - 1];
         if (areEqualCards(targetCard, lastCard)) {
@@ -151,6 +155,7 @@ function scoreBarController(barId) {
       if (this.hasUser(username)) {
         let userContainer = this.getUser(username);
         userContainer.lastElementChild.innerHTML = `<i class="fas fa-stopwatch"></i> ${Math.floor(seconds)} seconds`;
+        userContainer.appendChild.innerHTML = `<i class="fas fa-mouse-pointer"></i> ${tries} tries`;
       }
     }
   };
@@ -177,7 +182,9 @@ function finishGame(username) {
   finalTimeSpan.textContent = `${Math.floor(totalSeconds)} seconds`;
 
   scoresController.setUserTime(username, totalSeconds);
-
+  
+  tries = 0;
+  
   imgsGrid.classList.add("hide");
   congratsDiv.classList.remove("hide");
 }
