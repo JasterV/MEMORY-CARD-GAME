@@ -105,7 +105,7 @@ h2{
 .choose-username h1 {
   margin: 0;
   padding-bottom: 1rem;
-  color: hsla(208, 80%, 10%, .25);
+  color: hsla(208, 80%, 50%, .5);
 }
 
 input[type="text"] {
@@ -198,6 +198,7 @@ strong {
 
 .score-title {
   position: relative;
+  left: 20px;
   z-index: 2;
   color: white;
   transform: skew(0deg, -2deg);
@@ -216,6 +217,10 @@ strong {
   width: 35px;
 }
 
-.user-score-container {
-  color: hsla(208, 80%, 10%, .25);
+.user-scores h2 {
+  color: hsla(208, 80%, 60%, 1);
+}
+
+.user-scores {
+  text-align: center;
 }

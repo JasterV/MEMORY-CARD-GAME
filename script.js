@@ -90,7 +90,7 @@ playBtn.addEventListener("click", () => {
     currentUser = username;
     startTime = Date.now();
     
-    scoresController.setUserPlaying(username);
+    scoresController.createPlayingUser(username);
     
     shuffle(imgDivArray);
 
@@ -124,22 +124,25 @@ function scoreBarController(barId) {
   let scoresBar = document.getElementById(barId);
 
   return {
-    hasUser(username) {
-      return 
-    },
-
-    setUserPlaying(username) {
-      if (this.hasUser(username)) {
-        let userContainer = document.querySelector(
-          `.user-score-container[data-username=${username}]`
+    hasUser(username){
+       let userContainer = document.querySelector(
+          `.div[data-username=${username}]`
         );  
+      return userContainer !== null;
+    },
+    
+    createPlayingUser(username) {
+      if (this.hasUser(username)) {
+        let userContainer = document.querySelector(`.div[data-username=${username}]`);  
         userContainer.remove();
         userContainer.lastElementChild.textContent = "Currently playing...";
         scoresBar.insertAdjacentElement("afterbegin", userContainer);   
       } else {     
         let userContainer = createUserScoreDiv(username);
+        if(scoresBar.childElementCount == 5) {
+          scoresBar.lastElementChild.remove();
+        }
         scoresBar.insertAdjacentElement("afterbegin", userContainer);
-        users.push(username);
       }
     },
 
@@ -155,7 +158,6 @@ function scoreBarController(barId) {
 function createUserScoreDiv(username) {
   let container = document.createElement("div");
   container.setAttribute("data-username", username);
-  container.className = "user-score-container";
   container.innerHTML = `<h2>${username}</h2> <p>Currently playing...</p>`;
   return container;
 }
