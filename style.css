@@ -156,6 +156,11 @@ input[type="text"]:focus {
   box-shadow: 0 0px 0 #1b6fb8;
 }
 
+.game-button i {
+  font-size: 1.5rem;
+}
+
 strong {
   color: #228be6;
 }
+

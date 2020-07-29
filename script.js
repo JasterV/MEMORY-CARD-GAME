@@ -60,9 +60,11 @@ imgDivArray.forEach(targetCard => {
           let lastCard = discoveredCards[discoveredCards.length - 1];
           if(areEqualCards(targetCard, lastCard)) {
             discoveredCards.push(targetCard);
-            
-            if(isGameEnd(discoveredCards, imgDivArray)) {
-              finishGame(currentUser);
+
+            if(isGameEnd(discoveredCards, imgDivArray)) {      
+               setTimeout(() => {
+                  finishGame(currentUser);
+                }, 300);
             }
             
           } else {
@@ -80,10 +82,10 @@ imgDivArray.forEach(targetCard => {
 });
 
 playBtn.addEventListener("click", () => {
+  
   let username = document.getElementById("username").value;
   if(isValidUsername(username)) {
     currentUser = username;
-    updateContent(currentUser, "Currently playing...");
     startTime = Date.now();
     
     shuffle(imgDivArray);
@@ -133,12 +135,6 @@ function finishGame(username){
   congratsDiv.classList.remove("hide");
 }
 
-function setCurrentlyPlaying(username, players) {
-  players[username] = {
-    111
-  }
-}
-
 function updateScoresTable(playersInfo) {
   let scoreTable = document.getElementById("user-scores");
   scoreTable.innerHTML = "";
@@ -148,10 +144,9 @@ function updateScoresTable(playersInfo) {
   }
 }
 
-function createUserScoreDiv(username, content) {
+function createUserScoreDiv(username, seconds) {
   let container = document.createElement("div");
-  container.setAttribute("data-username", username);
-  container.innerHTML = `<h2>${username}</h2> <p>${content}</p>`;
+  container.innerHTML = `<h2>${username}</h2> <p>${seconds} seconds</p>`;
   return container;
 }
   
