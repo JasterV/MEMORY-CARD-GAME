@@ -164,18 +164,24 @@ strong {
 }
 
 .fa-trophy {
-  font-size: 6em;
+  font-size: 5em;
   position: absolute;
   top: -96px;
   left: 50%;
   transform: translateX(-50%);
 }
 
+.ribbon-wrapper {
+  position: absolute;
+  left: 40px;
+  top: 52px;
+  width: 100%;
+}
+
 .ribbon-score {
   width: 90%;
-  position: absolute;
-  right: 0;
-  top: 45px;
+  position: relative;
+  z-index: 2;
   filter: drop-shadow(6px 6px 6px rgba(0,0,0,.2))
 }
 
@@ -188,5 +194,8 @@ strong {
 
 .ribbon-tail {
   position: absolute;
-  widt
+  right: 10px;
+  top: 24px;
+  z-index: 1;
+  width: 30px;
 }

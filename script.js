@@ -131,33 +131,44 @@ function finishGame(username) {
   let finalTimeSpan = document.getElementById("user-seconds");
   let totalSeconds = (Date.now() - startTime) / 1000;
   finalTimeSpan.textContent = `${totalSeconds} seconds`;
-  
 
   imgsGrid.classList.add("hide");
   congratsDiv.classList.remove("hide");
 }
 
+function scoreBarController(barId) {
+  let users = [];
+  let scoresBar = document.getElementById(barId);
 
+  return {
+    hasUser(username) {
+      return users.includes(username);
+    },
 
-function addPlayerScore(username, score) {
-    let scoreTable = document.getElementById("user-scores");
-    let 
+    setUserPlaying(username) {
+      if (this.hasUser(username)) {
+        let userContent = document.querySelector(
+          `.user-score-container[data-username=${username}] p`
+        );
+        userContent.textContent = "Currently playing...";
+      } else {
+        let userContainer = createUserScoreDiv(username);
+        scoresBar.insertAdjacentElement("afterbegin", userContainer);
+        users.push(username);
+      }
+    },
+
+    setUserScore(username, score) {
+      
+    }
+  };
 }
 
-function updateScoresTable(playersInfo) {
-  scoreTable.innerHTML = "";
-
-  for (let username of Object.keys(playersInfo)) {
-    scoreTable.appendChild(
-      createUserScoreDiv(username, playersInfo[username].seconds)
-    );
-  }
-}
-
-function createUserScoreDiv(username, content) {
+function createUserScoreDiv(username) {
   let container = document.createElement("div");
   container.setAttribute("data-username", username);
-  container.innerHTML = `<h2>${username}</h2> <p>${content}</p>`;
+  container.className = "user-score-container";
+  container.innerHTML = `<h2>${username}</h2> <p>Currently playing...</p>`;
   return container;
 }
 
