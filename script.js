@@ -5,11 +5,11 @@ let imgSrc = [
   }, 
   { 
     pairId: 1,
-    src: "https://cdn.glitch.com/56d96ce9-5171-477f-8560-558ec3af0051%2Fdiamonds-a.PNG?v=1596020457628",
+    src: "https://cdn.glitch.com/56d96ce9-5171-477f-8560-558ec3af0051%2Fclover-9.png?v=1596020745882",
   },
   { 
     pairId: 2,
-    src: "https://cdn.glitch.com/56d96ce9-5171-477f-8560-558ec3af0051%2Fclover-9.png?v=1596020745882",
+    src: "https://cdn.glitch.com/56d96ce9-5171-477f-8560-558ec3af0051%2Fclover-3.PNG?v=1596020832177",
   },
    { 
     pairId: 3,
@@ -17,12 +17,25 @@ let imgSrc = [
   }, 
   { 
     pairId: 4,
-    src: "https://cdn.glitch.com/56d96ce9-5171-477f-8560-558ec3af0051%2Fspades-a.PNG?v=1596020468854",
+    src: "https://cdn.glitch.com/56d96ce9-5171-477f-8560-558ec3af0051%2Fhearts-6.PNG?v=1596020597172",
   },
   { 
     pairId: 5,
-    src: "https://cdn.glitch.com/56d96ce9-5171-477f-8560-558ec3af0051%2Fclover-3.PNG?v=1596020832177",
+    src: "https://cdn.glitch.com/56d96ce9-5171-477f-8560-558ec3af0051%2Fdiamonds-9.PNG?v=1596020736324",
   },
+  { 
+    pairId: 6,
+    src: "https://cdn.glitch.com/56d96ce9-5171-477f-8560-558ec3af0051%2Fspades-3.PNG?v=1596020840901",
+  },
+  { 
+    pairId: 7,
+    src: "https://cdn.glitch.com/56d96ce9-5171-477f-8560-558ec3af0051%2Fclover-6.png?v=1596020595265",
+  },
+  { 
+    pairId: 8,
+    src: "https://cdn.glitch.com/56d96ce9-5171-477f-8560-558ec3af0051%2Fdiamonds-3.png?v=1596020829948",
+  },
+  
 ];
 
 let imgDivArray = createGridContentArray(imgSrc);
@@ -50,7 +63,7 @@ function createGridContentArray(imgs) {
 function createImgDiv(img) {
   let container = document.createElement("div");
   container.setAttribute("data-pair", img.pairId);
-  container.style.backgroundImg = `url(${img.src})`;
+  container.style.backgroundImage = `url(${img.src})`;
   container.classList.add("cell");
   return container;
 }

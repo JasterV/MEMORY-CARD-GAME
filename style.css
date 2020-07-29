@@ -10,14 +10,17 @@ body {
   justify-content: center;
   flex-direction: column;
 }
+
 h2{
   margin-bottom: 2rem;
 }
+
 .cards-row {
   display: flex;
-  height: 500px;
+  height: 70%;
   width: 100%;
   justify-content: space-between;
+  margin-top:2rem;
   align-items: center;
 }
 
@@ -26,27 +29,26 @@ h2{
   border-radius: 10px;
   box-shadow: 10px 10px 10px black;
   height: 100%;
+  padding: 2rem;
 }
 
 .images-grid {
   width: 70%;
-  height: 100%;
   display: grid;
-  padding: 2rem;
   grid-gap: 20px;
-  grid-template-columns: repeat(4, 100px);
-  grid-template-rows: repeat(4, 300px);
+  grid-template-columns: repeat(4, 1.2fr);
+  grid-template-rows: repeat(4, 1fr);
   justify-content: center;
   align-content: center;
 }
 
 .cell { 
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
   background-position: center center;
-
 }
 
 .score-container {
   width: 20%;
+  margin-left: 2rem;
 }
