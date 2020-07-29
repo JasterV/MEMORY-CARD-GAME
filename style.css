@@ -11,13 +11,13 @@ body {
   flex-direction: column;
 }
 
-.hide {
-  display: none !important;
-}
-
 h2{
   margin-bottom: 2rem;
   text-align: center;
+}
+
+.hide {
+  display: none !important;
 }
 
 .cards-row {
@@ -72,12 +72,6 @@ h2{
   }
 }
 
-@keyframes flip-in {
-  100% {
-    transform: scaleX(1)
-  }
-}
-
 .score-container {
   min-width: 200px;
   width: 20%;
@@ -118,8 +112,6 @@ input[type="text"] {
   pointer-events: none;
   opacity: 0;
 }
-
-
 
 .game-button {
   padding: 1rem 3rem;

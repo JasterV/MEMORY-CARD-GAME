@@ -24,10 +24,6 @@ let imgSrc = [
     src: "https://cdn.glitch.com/56d96ce9-5171-477f-8560-558ec3af0051%2Fdiamonds-9.PNG?v=1596020736324",
   },
   { 
-    pairId: 6,
-    src: "https://cdn.glitch.com/56d96ce9-5171-477f-8560-558ec3af0051%2Fspades-3.PNG?v=1596020840901",
-  },
-  { 
     pairId: 7,
     src: "https://cdn.glitch.com/56d96ce9-5171-477f-8560-558ec3af0051%2Fclover-6.png?v=1596020595265",
   },
@@ -46,6 +42,7 @@ const players = {
   }
 }
 
+let startTime;
 
 let playBtn = document.getElementById("play");
 let chooseUserDiv = document.querySelector(".choose-username");
@@ -53,7 +50,7 @@ let imgsGrid = document.getElementById("images-grid");
 
 let imgDivArray = createGridContentArray(imgSrc);
 let discoveredCards = [];
-let currentUsername = "";
+let currentUser = "";
 
 
 imgDivArray.forEach(targetCard => {
@@ -75,9 +72,11 @@ imgDivArray.forEach(targetCard => {
           } else {
             discoveredCards.pop();
             
+            setTimeout(() => {
+              lastCard.classList.add("flipped-cell");
+              targetCard.classList.add("flipped-cell");
+            }, 500);
             
-            lastCard.classList.add("flipped-cell");
-            targetCard.classList.add("flipped-cell");
           }
         }
     }
@@ -88,8 +87,8 @@ playBtn.addEventListener("click", () => {
   
   let username = document.getElementById("username").value;
   if(isValidUsername(username)) {
-    currentUsername = username;
-    
+    currentUser = username;
+    startTime = Date.now();
     shuffle(imgDivArray);
     imgsGrid.innerHTML = "";
     imgDivArray.forEach((img) => {
