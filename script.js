@@ -46,23 +46,40 @@ const players = {
   }
 }
 
-let imgDivArray = createGridContentArray(imgSrc);
+
 let playBtn = document.getElementById("play");
 let chooseUserDiv = document.querySelector(".choose-username");
 let imgsGrid = document.getElementById("images-grid");
-let currentUsername = "";
+
+let imgDivArray = createGridContentArray(imgSrc);
 let discoveredCards = [];
+let currentUsername = "";
 
 
-imgDivArray.forEach(container => {
-  container.addEventListener("click", () => {
-    if(isFlipped(container)) {
-        container.classList.remove("flipped-cell");
+imgDivArray.forEach(targetCard => {
+  targetCard.addEventListener("click", () => {
+    if(isFlipped(targetCard)) {
+        targetCard.classList.remove("flipped-cell");
         
         if(discoveredCards.length % 2 == 0) {
-          
+          discoveredCards.push(targetCard);
+        }else {
+          let lastCard = discoveredCards[discoveredCards.length - 1];
+          if(areEqualCards(targetCard, lastCard)) {
+            discoveredCards.push(targetCard);
+            
+            if(isGameEnd(discoveredCards, imgDivArray)) {
+              finishGame(currentUser);
+            }
+            
+          } else {
+            discoveredCards.pop();
+            
+            
+            lastCard.classList.add("flipped-cell");
+            targetCard.classList.add("flipped-cell");
+          }
         }
-      
     }
   });
 });
@@ -89,11 +106,19 @@ playBtn.addEventListener("click", () => {
 });
 
 
-
-
-
-
 /* ------------ FUNCTIONS -----------------*/
+
+function isGameEnd(discoveredCards, cards) {
+  return discoveredCards.length === cards.length;
+}
+
+function finishGame(username){
+  console.log(username);
+}
+  
+function areEqualCards(card1, card2) {
+  return card1.getAttribute("data-pair") === card2.getAttribute("data-pair");
+}
 
 function isValidUsername(name) {
   return name !== undefined && name.trim() !== ""; 
