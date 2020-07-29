@@ -47,6 +47,7 @@ let startTime;
 let playBtn = document.getElementById("play");
 let chooseUserDiv = document.querySelector(".choose-username");
 let imgsGrid = document.getElementById("images-grid");
+let congratsDiv = document.querySelector(".congrats-container");
 
 let imgDivArray = createGridContentArray(imgSrc);
 let discoveredCards = [];
@@ -89,7 +90,9 @@ playBtn.addEventListener("click", () => {
   if(isValidUsername(username)) {
     currentUser = username;
     startTime = Date.now();
+    
     shuffle(imgDivArray);
+    
     imgsGrid.innerHTML = "";
     imgDivArray.forEach((img) => {
       imgsGrid.appendChild(img);
@@ -111,8 +114,14 @@ function isGameEnd(discoveredCards, cards) {
   return discoveredCards.length === cards.length;
 }
 
+
 function finishGame(username){
-  console.log(username);
+  let finalTimeSpan = document.getElementById("user-seconds");
+  let totalSeconds =  (Date.now() - startTime) / 1000;
+  finalTimeSpan.textContent = `${totalSeconds} seconds`;
+  
+  imgsGrid.classList.add("hide");
+  congratsDiv.classList.remove("hide");
 }
   
 function areEqualCards(card1, card2) {
