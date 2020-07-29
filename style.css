@@ -261,7 +261,7 @@ strong {
   }
   
   .card {
-    height: auto;
+    height:100%
   }
   
   .left-card {
@@ -298,11 +298,15 @@ strong {
     left: auto;
     transform: translateX(-59%);
   }
+  
+  #user-scores h2 {
+    margin-top: 18px;
+  }
 }
 
 @media (max-width: 860px) {
   .fa-trophy {
-    font-size: 25vh;
+    font-size: 27vh;
     bottom: 0;
     transform: translateX(-62%) translateY(26%);
   }
