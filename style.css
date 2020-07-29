@@ -34,14 +34,17 @@ h2{
   display: grid;
   padding: 2rem;
   grid-gap: 20px;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(4, 1fr);
+  grid-template-columns: repeat(4, 100px);
+  grid-template-rows: repeat(4, 300px);
   justify-content: center;
   align-content: center;
 }
 
 .cell { 
-  background-color: red;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+
 }
 
 .score-container {

@@ -15,23 +15,42 @@ let imgSrc = [
     pairId: 3,
     src: "https://cdn.glitch.com/56d96ce9-5171-477f-8560-558ec3af0051%2Fspades-a.PNG?v=1596020468854",
   }, 
+  { 
+    pairId: 4,
+    src: "https://cdn.glitch.com/56d96ce9-5171-477f-8560-558ec3af0051%2Fspades-a.PNG?v=1596020468854",
+  },
+  { 
+    pairId: 5,
+    src: "https://cdn.glitch.com/56d96ce9-5171-477f-8560-558ec3af0051%2Fclover-3.PNG?v=1596020832177",
+  },
 ];
 
+let imgDivArray = createGridContentArray(imgSrc);
 
-let imgPairs = doubleContent(imgSrc);
-let shuffledImgs = shuffle(imgPairs);
+imgDivArray.forEach(container => {
+  container.addEventListener("click", () => console.log(container.getAttribute("data-pair")));
+});
+
+let shuffledImgs = shuffle(imgDivArray);
 
 let imgsGrid = document.getElementById("images-grid");
-
 shuffledImgs.forEach((img) => {
-  let imgDiv = createImgDiv(img);
-  imgsGrid.appendChild(imgDiv);
+  imgsGrid.appendChild(img);
 })
+
+
+
+/* ------------ FUNCTIONS -----------------*/
+
+function createGridContentArray(imgs) {
+  let doubled = doubleContent(imgSrc);
+  return doubled.map(img => createImgDiv(img));
+} 
 
 function createImgDiv(img) {
   let container = document.createElement("div");
   container.setAttribute("data-pair", img.pairId);
-  container.style.backgroundImage = img.src;
+  container.style.backgroundImg = `url(${img.src})`;
   container.classList.add("cell");
   return container;
 }
