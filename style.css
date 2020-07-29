@@ -2,7 +2,7 @@
 
 body {
   font-family: 'Montserrat Alternates', sans-serif;
-  background-color: gray;
+  background-color: #ECECEC;
   padding: 0 10rem;
   margin: 0;
   height: 100vh;
@@ -13,13 +13,14 @@ body {
 
 h2{
   margin-bottom: 2rem;
+  text-align: center;
 }
 
 .cards-row {
   display: flex;
   height: 70%;
   width: 100%;
-  justify-content: space-between;
+  justify-content: center;
   margin-top:2rem;
   align-items: center;
 }
@@ -33,7 +34,9 @@ h2{
 }
 
 .images-grid {
-  width: 70%;
+  width: 100%;
+  min-width: 420px;
+  max-width: 720px;
   display: grid;
   grid-gap: 20px;
   grid-template-columns: repeat(4, 1.2fr);
@@ -48,7 +51,12 @@ h2{
   background-position: center center;
 }
 
+.flipped-cell {
+  background-image: url("https://cdn.glitch.com/56d96ce9-5171-477f-8560-558ec3af0051%2Fcard-back.png?v=1596022698967") !important;
+}
+
 .score-container {
   width: 20%;
   margin-left: 2rem;
 }
+

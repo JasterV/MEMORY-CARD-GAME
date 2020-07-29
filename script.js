@@ -13,7 +13,7 @@ let imgSrc = [
   },
    { 
     pairId: 3,
-    src: "https://cdn.glitch.com/56d96ce9-5171-477f-8560-558ec3af0051%2Fspades-a.PNG?v=1596020468854",
+    src: "https://cdn.glitch.com/56d96ce9-5171-477f-8560-558ec3af0051%2Fdiamonds-a.PNG?v=1596020457628",
   }, 
   { 
     pairId: 4,
@@ -35,13 +35,15 @@ let imgSrc = [
     pairId: 8,
     src: "https://cdn.glitch.com/56d96ce9-5171-477f-8560-558ec3af0051%2Fdiamonds-3.png?v=1596020829948",
   },
-  
 ];
 
 let imgDivArray = createGridContentArray(imgSrc);
 
 imgDivArray.forEach(container => {
-  container.addEventListener("click", () => console.log(container.getAttribute("data-pair")));
+  container.addEventListener("click", () => {
+    console.log("hi!");
+   container.classList.toggle("flipped-cell"); 
+  });
 });
 
 let shuffledImgs = shuffle(imgDivArray);
@@ -49,9 +51,7 @@ let shuffledImgs = shuffle(imgDivArray);
 let imgsGrid = document.getElementById("images-grid");
 shuffledImgs.forEach((img) => {
   imgsGrid.appendChild(img);
-})
-
-
+});
 
 /* ------------ FUNCTIONS -----------------*/
 
