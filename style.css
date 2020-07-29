@@ -300,4 +300,14 @@ strong {
   }
 }
 
-@media ()
+@media (max-width: 860px) {
+  .fa-trophy {
+    font-size: 25vh;
+    bottom: 0;
+    transform: translateX(-62%) translateY(26%);
+  }
+  
+  .score-container {
+    overflow: hidden;
+  }
+}
