@@ -260,6 +260,14 @@ strong {
     flex-direction: column;
   }
   
+  .card {
+    height: auto;
+  }
+  
+  .left-card {
+    padding: 4rem 2rem;
+  }
+  
   .score-container {
     margin-left: 0;
     margin-top: 2rem;
@@ -269,4 +277,27 @@ strong {
   .left-card, .score-container {
     min-width: 360px;
   }
+  
+  .ribbon-wrapper {
+    display: none;
+  }
+  
+  .score-title {
+    color: hsla(208, 80%, 60%, 1);
+    text-shadow: none;
+    transform: none;
+    left: 0;
+    padding-top: 0;
+    margin-top: 0;
+    font-size: 16px;
+  }
+  
+  .fa-trophy {
+    font-size: 3em;
+    top: -48px;
+    left: auto;
+    transform: translateX(-59%);
+  }
 }
+
+@media ()
