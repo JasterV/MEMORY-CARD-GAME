@@ -233,6 +233,11 @@ strong {
   width: 35px;
 }
 
+.fa-stopwatch {
+  font-size: 18px;
+  margin-right: 3px;
+}
+
 @media (max-height: 865px) {
   #user-scores {
     max-height: 73%;

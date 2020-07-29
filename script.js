@@ -150,7 +150,7 @@ function scoreBarController(barId) {
     setUserTime(username, seconds) {
       if (this.hasUser(username)) {
         let userContainer = this.getUser(username);
-        userContainer.lastElementChild.textContent = `${seconds} seconds`;
+        userContainer.lastElementChild.innerHTML = `<i class="fas fa-stopwatch"></i> ${Math.floor(seconds)} seconds`;
       }
     }
   };
@@ -174,7 +174,7 @@ function isGameEnd(discoveredCards, cards) {
 function finishGame(username) {
   let finalTimeSpan = document.getElementById("user-seconds");
   let totalSeconds = (Date.now() - startTime) / 1000;
-  finalTimeSpan.textContent = `${totalSeconds} seconds`;
+  finalTimeSpan.textContent = `${Math.floor(totalSeconds)} seconds`;
 
   scoresController.setUserTime(username, totalSeconds);
 
