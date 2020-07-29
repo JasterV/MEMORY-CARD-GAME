@@ -121,12 +121,11 @@ playAgainBtn.addEventListener("click", () => {
 /*--------------------------------------------------*/
 
 function scoreBarController(barId) {
-  let users = [];
   let scoresBar = document.getElementById(barId);
 
   return {
     hasUser(username) {
-      return users.includes(username);
+      return 
     },
 
     setUserPlaying(username) {

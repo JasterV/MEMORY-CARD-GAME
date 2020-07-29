@@ -92,7 +92,6 @@ h2{
 
 .user-scores {
   padding-top: 1.3rem;
-  padding-left: 2rem;
 }
 
 .choose-username {
@@ -193,7 +192,8 @@ strong {
   width: 90%;
   position: relative;
   z-index: 2;
-  filter: drop-shadow(6px 9px 6px rgba(12, 64, 110, .2))
+  filter: drop-shadow(6px 9px 6px rgba(12, 64, 110, .2));
+  
 }
 
 .score-title {
@@ -214,4 +214,8 @@ strong {
   top: 19px;
   z-index: 1;
   width: 35px;
+}
+
+.user-score-container {
+  color: hsla(208, 80%, 10%, .25);
 }
