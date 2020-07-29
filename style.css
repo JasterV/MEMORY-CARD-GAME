@@ -106,6 +106,7 @@ h2{
 .choose-username h1 {
   margin: 0;
   padding-bottom: 1rem;
+  color: hsla(208, 80%, 10%, .25);
 }
 
 input[type="text"] {
@@ -119,11 +120,17 @@ input[type="text"] {
   transition: 300ms ease-out;
   font-family: "Montserrat Alternates", sans-serif;
   letter-spacing: 1px;
+  color: hsla(208, 80%, 70%, 1);
 }
 
 input[type="text"]:focus {
   transform: scale(1.1) translateY(-8px);
   box-shadow: 0 6px 12px rgba(12, 64, 110, .1);
+}
+
+input[type="text"]:focus ~ .placeholder {
+  transform: scale(1.1) translateY(-8px);
+  opacity: 0;
 }
 
 .username-container {
@@ -135,7 +142,8 @@ input[type="text"]:focus {
 .placeholder {
   position: absolute;
   pointer-events: none;
-  opacity: 0;
+  color: hsla(208, 80%, 10%, .25);
+  transition: 300ms ease-out;
 }
 
 .game-button {

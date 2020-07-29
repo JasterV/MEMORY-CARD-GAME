@@ -217,3 +217,19 @@ function doubleContent(arr) {
 function shuffle(array) {
   array.sort(() => Math.random() - 0.5);
 }
+
+// FADE PLACEHOLDER IF INPUT IS EMPTY
+var usernameInput = document.getElementById("username")
+var placeholder = document.getElementById("placeholder")
+
+usernameInput.addEventListener("focusin", () => {
+  if (usernameInput.value == "") {
+    placeholder.style.opacity = "0"
+  }
+})
+
+usernameInput.addEventListener("focusout", () => {
+  if (usernameInput.value == "") {
+    placeholder.style.opacity = "1"
+  }
+})
