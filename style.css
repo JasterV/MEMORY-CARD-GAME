@@ -116,7 +116,10 @@ input[type="text"] {
 .placeholder {
   position: absolute;
   pointer-events: none;
+  opacity: 0;
 }
+
+
 
 .game-button {
   padding: 1rem 3rem;

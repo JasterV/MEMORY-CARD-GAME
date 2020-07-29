@@ -50,33 +50,42 @@ let imgDivArray = createGridContentArray(imgSrc);
 let playBtn = document.getElementById("play");
 let chooseUserDiv = document.querySelector(".choose-username");
 let imgsGrid = document.getElementById("images-grid");
+let currentUsername = "";
+let discoveredCards = [];
 
 
 imgDivArray.forEach(container => {
   container.addEventListener("click", () => {
     if(isFlipped(container)) {
         container.classList.remove("flipped-cell");
+        
+        if(discoveredCards.length % 2 == 0) {
+          
+        }
+      
     }
   });
 });
 
 playBtn.addEventListener("click", () => {
   
-  
-  
-  shuffle(imgDivArray);
-  imgsGrid.innerHTML = "";
-  imgDivArray.forEach((img) => {
-    imgsGrid.appendChild(img);
-  });
-  
-  chooseUserDiv.classList.add("hide");
-  imgsGrid.classList.remove("hide");
-  
-  setTimeout(()=>{  
-    flipCards(imgDivArray);
-  }, 3000);
-  
+  let username = document.getElementById("username").value;
+  if(isValidUsername(username)) {
+    currentUsername = username;
+    
+    shuffle(imgDivArray);
+    imgsGrid.innerHTML = "";
+    imgDivArray.forEach((img) => {
+      imgsGrid.appendChild(img);
+    });
+
+    chooseUserDiv.classList.add("hide");
+    imgsGrid.classList.remove("hide");
+
+    setTimeout(()=> {  
+      flipCards(imgDivArray);
+    }, 3000);
+  }
 });
 
 
@@ -85,6 +94,10 @@ playBtn.addEventListener("click", () => {
 
 
 /* ------------ FUNCTIONS -----------------*/
+
+function isValidUsername(name) {
+  return name !== undefined && name.trim() !== ""; 
+}
 
 function isFlipped(card) {
   return card.classList.contains("flipped-cell");
