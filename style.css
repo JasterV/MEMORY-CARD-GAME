@@ -49,14 +49,27 @@ h2{
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center center;
+  filter: drop-shadow(0 4px 3px rgba(0,0,0,.2));
 }
 
 .flipped-cell {
   background-image: url("https://cdn.glitch.com/56d96ce9-5171-477f-8560-558ec3af0051%2Fcard-back.png?v=1596022698967") !important;
+  animation: flip-out 500ms forwards;
+}
+
+@keyframes flip-out {
+  100% {
+    transform: scaleX(-1)
+  }
+}
+
+@keyframes flip-in {
+  100% {
+    transform: scaleX(1)
+  }
 }
 
 .score-container {
   width: 20%;
   margin-left: 2rem;
 }
-

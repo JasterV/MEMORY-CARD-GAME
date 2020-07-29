@@ -21,7 +21,7 @@ let imgSrc = [
   },
   { 
     pairId: 5,
-    src: "https://cdn.glitch.com/56d96ce9-5171-477f-8560-558ec3af0051%2Fdiamonds-9.PNG?v=1596020736324",
+    src: "https://cdn.glitch.com/56d96ce9-5171-477f-8560-558ec3af0051%2Fdiamonds-9.PNG?v=1596020736324https://cdn.glitch.com/56d96ce9-5171-477f-8560-558ec3af0051%2Fclover-3.PNG?v=1596020832177",
   },
   { 
     pairId: 6,
@@ -41,8 +41,8 @@ let imgDivArray = createGridContentArray(imgSrc);
 
 imgDivArray.forEach(container => {
   container.addEventListener("click", () => {
-    console.log("hi!");
-   container.classList.toggle("flipped-cell"); 
+    if (container.)
+    container.classList.toggle("flipped-cell");
   });
 });
 
