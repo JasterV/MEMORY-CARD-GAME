@@ -41,7 +41,6 @@ let imgDivArray = createGridContentArray(imgSrc);
 
 imgDivArray.forEach(container => {
   container.addEventListener("click", () => {
-    if (container.)
     container.classList.toggle("flipped-cell");
   });
 });
