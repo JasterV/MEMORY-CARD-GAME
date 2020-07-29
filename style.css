@@ -35,7 +35,6 @@ h2{
   box-shadow: 10px 10px 10px black;
   height: 100%;
   padding: 2rem;
-  background: #fafdfe;
 }
 
 .left-card {
@@ -112,11 +111,13 @@ input[type="text"] {
   border-radius: 100px;
   border: 2px solid #228be6;
   transition: 300ms ease-out;
+  font-family: "Montserrat Alternates", sans-serif;
+  letter-spacing: 1px;
 }
 
 input[type="text"]:focus {
-  transform: scale(1.2);
-  box-shadow: 0 0 12px rgba(34, 139, 230,.2);
+  transform: scale(1.1) translateY(-5px);
+  box-shadow: 0 3px 12px rgba(34, 139, 230,.2);
 }
 
 .username-container {

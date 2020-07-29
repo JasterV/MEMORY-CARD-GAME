@@ -104,9 +104,10 @@ playBtn.addEventListener("click", () => {
 
 playAgainBtn.addEventListener("click", () => {
   currentUser = "";
-  
+  congratsDiv.classList.add("hide");
+  chooseUserDiv.classList.remove("hide");
+  document.getElementById('username').value = "";
 });
-
 
 
 
@@ -129,6 +130,17 @@ function finishGame(username){
   imgsGrid.classList.add("hide");
   congratsDiv.classList.remove("hide");
 }
+
+function updateScoresTable(playersInfo) {
+  let scoreTable = document.getElementById("user-scores");
+  scoreTable.innerHTML = "";
+  
+  for(let username of Object.keys(playersInfo)) {
+    
+  }
+}
+
+function createUserScoreDiv(username, s)
   
 function areEqualCards(card1, card2) {
   return card1.getAttribute("data-pair") === card2.getAttribute("data-pair");
