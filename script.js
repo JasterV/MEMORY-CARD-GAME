@@ -127,6 +127,8 @@ function finishGame(username){
     seconds: totalSeconds,
   };
   
+  updateScoresTable(players);
+  
   imgsGrid.classList.add("hide");
   congratsDiv.classList.remove("hide");
 }
@@ -136,11 +138,16 @@ function updateScoresTable(playersInfo) {
   scoreTable.innerHTML = "";
   
   for(let username of Object.keys(playersInfo)) {
-    
+    scoreTable.appendChild(createUserScoreDiv(username, playersInfo[username].seconds));
   }
 }
 
-function createUserScoreDiv(username, s)
+function createUserScoreDiv(username, seconds) {
+  let container = document.createElement("div");
+  container.setAttribute("data-username", username);
+  container.innerHTML = `<h2>${username}</h2> <p>${seconds} seconds</p>`;
+  return container;
+}
   
 function areEqualCards(card1, card2) {
   return card1.getAttribute("data-pair") === card2.getAttribute("data-pair");
