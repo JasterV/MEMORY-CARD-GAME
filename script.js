@@ -145,13 +145,11 @@ function scoreBarController(barId) {
       if (this.hasUser(username)) {
         let userContainer = document.querySelector(
           `.user-score-container[data-username=${username}]`
-        );
-        
+        );  
         userContainer.remove();
         userContainer.lastElementChild.textContent = "Currently playing...";
         scoresBar.insertAdjacentElement("afterbegin", userContainer);   
-        
-      } else {
+      } else {     
         let userContainer = createUserScoreDiv(username);
         scoresBar.insertAdjacentElement("afterbegin", userContainer);
         users.push(username);

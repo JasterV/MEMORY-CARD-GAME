@@ -188,10 +188,13 @@ strong {
   filter: drop-shadow(6px 6px 6px rgba(0,0,0,.2))
 }
 
-.user-scores-title {
+.score-title {
   position: relative;
   z-index: 2;
   color: white;
+}
+
+.user-score {
   transform: skew(0deg, -2deg);
 }
 
