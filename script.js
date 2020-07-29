@@ -4,56 +4,36 @@ let imgSrc = [
     src: "patata",
   }, 
   { 
-    pairId: 0,
-    src: "patata",
-  }, 
-  { 
     pairId: 1,
     src: "patata",
-  }, 
-  { 
-    pairId: 1,
-    src: "patata",
-  }, 
-  { 
-    pairId: 2,
-    src: "patata",
-  }, 
+  },
   { 
     pairId: 2,
     src: "patata",
   }, 
 ];
 
+let imgPairs = doubleContent(imgSrc);
+let shuffledImgs = shuffle(imgPairs);
 
-let shuffledImgs = 
+
 
 
 function createImgDiv(img) {
   let container = document.createElement("div");
-}
-
-function swap(arr, i, j) {
-  let tmp = arr[i];
-  arr[i] = arr[j];
-  arr[j] = tmp;
-}
-
-function shuffle(a) {
-    var j, x, i;
+  container.setAttribute("data-pair", img.pairId);
+  container.style.backgroundImage = img.src;
   
-    for (i = a.length - 1; i > 0; i--) {
-        j = Math.floor(Math.random() * (i + 1));
-        x = a[i];
-        a[i] = a[j];
-        a[j] = x;
-    }
-  
-    return a;
+  return container;
 }
 
-function takeRandomPos () {
-  let coordX = Math.floor(Math.random() * (4) + 1);
-  let coordY = Math.floor(Math.random() * (4) + 1);
-  retunr
+function doubleContent(arr) {
+  return arr.concat(arr);
+}
+
+
+function shuffle(array) {
+  let newArray = Array.from(array);
+  newArray.sort(() => Math.random() - 0.5);
+  return newArray;
 }
