@@ -230,3 +230,13 @@ strong {
     overflow-y: auto;
   }   
 }
+
+@media(max-width: 760px) {
+  .cards-row {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .card 
+}
