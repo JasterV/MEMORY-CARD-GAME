@@ -170,3 +170,23 @@ strong {
   left: 50%;
   transform: translateX(-50%);
 }
+
+.ribbon-score {
+  width: 90%;
+  position: absolute;
+  right: 0;
+  top: 45px;
+  filter: drop-shadow(6px 6px 6px rgba(0,0,0,.2))
+}
+
+.user-scores {
+  position: relative;
+  z-index: 2;
+  color: white;
+  transform: skew(0deg, -2deg);
+}
+
+.ribbon-tail {
+  position: absolute;
+  widt
+}

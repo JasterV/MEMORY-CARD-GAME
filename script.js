@@ -49,7 +49,6 @@ let playAgainBtn = document.getElementById("play-again-btn");
 
 let imgDivArray = createGridContentArray(imgSrc);
 let discoveredCards = [];
-const players = {};
 let currentUser = "";
 let startTime;
 
@@ -107,12 +106,22 @@ playBtn.addEventListener("click", () => {
 
 playAgainBtn.addEventListener("click", () => {
   currentUser = "";
+  discoveredCards = [];
   congratsDiv.classList.add("hide");
   chooseUserDiv.classList.remove("hide");
   document.getElementById("username").value = "";
 });
 
 /* ------------ FUNCTIONS -----------------*/
+
+function indexOfPlayer(name, players) {
+  for (let i = 0; i < players.length; i++) {
+    if (players[i].username === name) {
+      return i;
+    }
+  }
+  return undefined;
+}
 
 function isGameEnd(discoveredCards, cards) {
   return discoveredCards.length === cards.length;
@@ -122,19 +131,20 @@ function finishGame(username) {
   let finalTimeSpan = document.getElementById("user-seconds");
   let totalSeconds = (Date.now() - startTime) / 1000;
   finalTimeSpan.textContent = `${totalSeconds} seconds`;
-
-  players[currentUser] = {
-    seconds: totalSeconds
-  };
-
-  updateScoresTable(players);
+  
 
   imgsGrid.classList.add("hide");
   congratsDiv.classList.remove("hide");
 }
 
+
+
+function addPlayerScore(username, score) {
+    let scoreTable = document.getElementById("user-scores");
+    let 
+}
+
 function updateScoresTable(playersInfo) {
-  let scoreTable = document.getElementById("user-scores");
   scoreTable.innerHTML = "";
 
   for (let username of Object.keys(playersInfo)) {
@@ -144,9 +154,10 @@ function updateScoresTable(playersInfo) {
   }
 }
 
-function createUserScoreDiv(username, seconds) {
+function createUserScoreDiv(username, content) {
   let container = document.createElement("div");
-  container.innerHTML = `<h2>${username}</h2> <p>${seconds} seconds</p>`;
+  container.setAttribute("data-username", username);
+  container.innerHTML = `<h2>${username}</h2> <p>${content}</p>`;
   return container;
 }
 
