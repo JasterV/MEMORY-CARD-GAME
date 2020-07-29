@@ -144,8 +144,8 @@ input[type="text"]:focus {
   background: hsla(208, 80%, 60%, 1);
   color: white;
   border-radius: 5px;
-  border: 1px solid hsla(208, 80%, 40%, 1);
-  box-shadow: 0 3px 0 hsla(208, 80%, 40%, 1);
+  border: 1px solid hsla(208, 80%, 45%, 1);
+  box-shadow: 0 3px 0 hsla(208, 80%, 45%, 1);
   outline: none;
   transition: 150ms ease-out;
   cursor: pointer;
@@ -176,7 +176,7 @@ strong {
 .ribbon-wrapper {
   position: absolute;
   left: 40px;
-  top: 52px;
+  top: 45px;
   width: 100%;
   z-index: 1;
 }
@@ -188,7 +188,7 @@ strong {
   filter: drop-shadow(6px 6px 6px rgba(0,0,0,.2))
 }
 
-.user-scores {
+.user-scores-title {
   position: relative;
   z-index: 2;
   color: white;
