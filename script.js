@@ -47,7 +47,7 @@ let imgsGrid = document.getElementById("images-grid");
 let congratsDiv = document.getElementById("congrats-container");
 let looseDiv = document.getElementById("loose-container");
 let playAgainBtns = document.querySelectorAll(".play-again-btn");
-let modeContainer =  document.getElementById("mode-container");
+let modeContainer = document.getElementById("mode-container");
 let hardBtn = document.getElementById("hard-btn");
 let easyBtn = document.getElementById("easy-btn");
 
@@ -68,7 +68,7 @@ imgDivArray.forEach(targetCard => {
       if (discoveredCards.length % 2 == 0) {
         discoveredCards.push(targetCard);
         tries++;
-        console.log(tries)
+        console.log(tries);
       } else {
         let lastCard = discoveredCards[discoveredCards.length - 1];
         if (areEqualCards(targetCard, lastCard)) {
@@ -80,8 +80,8 @@ imgDivArray.forEach(targetCard => {
             }, 300);
           }
         } else {
-          if(hardMode) {
-           looseGame(currentUser);
+          if (hardMode) {
+            looseGame(currentUser);
           } else {
             discoveredCards.pop();
 
@@ -90,7 +90,6 @@ imgDivArray.forEach(targetCard => {
               targetCard.classList.add("flipped-cell");
             }, 500);
           }
-          
         }
       }
     }
@@ -99,26 +98,26 @@ imgDivArray.forEach(targetCard => {
 
 playBtn.addEventListener("click", goToModePage);
 
-document.addEventListener("keydown", (event) => {
-  if(!chooseUserDiv.classList.contains("hide") && event.which === 13){
+document.addEventListener("keydown", event => {
+  if (!chooseUserDiv.classList.contains("hide") && event.which === 13) {
     goToModePage();
   }
 });
 
-for (let btn of playAgainBtns){
-  btn.addEventListener("click", (e) => {
-  currentUser = "";
-  discoveredCards = [];
-  tries = 0;
-  unFlipCards(imgDivArray);
-  e.target.parentElement.classList.add("hide");
-  chooseUserDiv.classList.remove("hide");
-  document.getElementById("username").value = "";
+for (let btn of playAgainBtns) {
+  btn.addEventListener("click", e => {
+    currentUser = "";
+    discoveredCards = [];
+    tries = 0;
+    unFlipCards(imgDivArray);
+    e.target.parentElement.classList.add("hide");
+    chooseUserDiv.classList.remove("hide");
+    document.getElementById("username").value = "";
   });
 }
 
 easyBtn.addEventListener("click", () => {
- hardMode = false;
+  hardMode = false;
   startGame(currentUser);
 });
 
@@ -162,22 +161,23 @@ function scoreBarController(barId) {
     setUserTime(username, seconds) {
       if (this.hasUser(username)) {
         let userContainer = this.getUser(username);
-        if(!hardMode) {
-           userContainer.lastElementChild.innerHTML = `<i class="fas fa-stopwatch"></i> ${Math.floor(seconds)} seconds`
-                                                    + ` <i class="fas fa-mouse-pointer"></i> ${tries} tries`;
+        if (!hardMode) {
+          userContainer.lastElementChild.innerHTML =
+            `<i class="fas fa-stopwatch"></i> ${Math.floor(seconds)} seconds` +
+            ` <i class="fas fa-mouse-pointer"></i> ${tries} tries`;
         } else {
-           userContainer.lastElementChild.innerHTML = `<i class="fas fa-stopwatch"></i> ${Math.floor(seconds)} seconds`
-                                                    + `(Hard Mode)`;
+          userContainer.lastElementChild.innerHTML = `<i class="fas fa-stopwatch"></i> ${Math.floor(
+            seconds
+          )} seconds (Hard Mode)`;
         }
-       
       }
     },
-    
+
     setUserLost(username) {
       let userContainer = this.getUser(username);
-      userContainer.lastElementChild.innerHTML = `You lost. <i class="fas fa-mouse-pointer"></i> ${tries} tries``"Game Lost! :(";
+      userContainer.lastElementChild.innerHTML = `Game Lost! Made <img class="card-pairs" src="https://cdn.glitch.com/56d96ce9-5171-477f-8560-558ec3af0051%2Fpair-card.svg?v=1596096318024"> ${tries -
+        1} pairs`;
     }
-    
   };
 }
 
@@ -195,29 +195,29 @@ function createUserScoreDiv(username) {
 function goToModePage() {
   let username = document.getElementById("username").value;
   if (isValidUsername(username)) {
-    currentUser = username;
+    currentUser = username.toLowerCase();
     modeContainer.classList.remove("hide");
     chooseUserDiv.classList.add("hide");
   }
 }
 
 function startGame(username) {
-    startTime = Date.now();
-    scoresController.createPlayingUser(username);
+  startTime = Date.now();
+  scoresController.createPlayingUser(username);
 
-    shuffle(imgDivArray);
+  shuffle(imgDivArray);
 
-    imgsGrid.innerHTML = "";
-    imgDivArray.forEach(img => {
-      imgsGrid.appendChild(img);
-    });
+  imgsGrid.innerHTML = "";
+  imgDivArray.forEach(img => {
+    imgsGrid.appendChild(img);
+  });
 
-    modeContainer.classList.add("hide");
-    imgsGrid.classList.remove("hide");
+  modeContainer.classList.add("hide");
+  imgsGrid.classList.remove("hide");
 
-    setTimeout(() => {
-      flipCards(imgDivArray);
-    }, 3000);
+  setTimeout(() => {
+    flipCards(imgDivArray);
+  }, 3000);
 }
 
 function isGameEnd(discoveredCards, cards) {
@@ -230,12 +230,12 @@ function winGame(username) {
   finalTimeSpan.textContent = `${Math.floor(totalSeconds)} seconds`;
 
   scoresController.setUserTime(username, totalSeconds);
-  
+
   imgsGrid.classList.add("hide");
   congratsDiv.classList.remove("hide");
 }
 
-function looseGame(username){
+function looseGame(username) {
   let triesSpan = document.getElementById("tries-span");
   let triesInARow = tries - 1;
   scoresController.setUserLost(username);
