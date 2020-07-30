@@ -7,12 +7,12 @@ let imgSrc = [
   {
     pairId: 1,
     src:
-      "https://cdn.glitch.com/56d96ce9-5171-477f-8560-558ec3af0051%2Fclover-9.svg?v=1596057152201"
+      "https://cdn.glitch.com/56d96ce9-5171-477f-8560-558ec3af0051%2Fclover-9.svg?v=1596095594108"
   },
   {
     pairId: 2,
     src:
-      "https://cdn.glitch.com/56d96ce9-5171-477f-8560-558ec3af0051%2Fclover-3.svg?v=1596056909900"
+      "https://cdn.glitch.com/56d96ce9-5171-477f-8560-558ec3af0051%2Fclover-3.svg?v=1596095585744"
   },
   {
     pairId: 3,
@@ -22,22 +22,22 @@ let imgSrc = [
   {
     pairId: 4,
     src:
-      "https://cdn.glitch.com/56d96ce9-5171-477f-8560-558ec3af0051%2Fhearts-9.svg?v=1596057343693"
+      "https://cdn.glitch.com/56d96ce9-5171-477f-8560-558ec3af0051%2Fhearts-9.svg?v=1596095606413"
   },
   {
     pairId: 5,
     src:
-      "https://cdn.glitch.com/56d96ce9-5171-477f-8560-558ec3af0051%2Fdiamonds-9.svg?v=1596057557539"
+      "https://cdn.glitch.com/56d96ce9-5171-477f-8560-558ec3af0051%2Fdiamonds-9.svg?v=1596095602722"
   },
   {
     pairId: 7,
     src:
-      "https://cdn.glitch.com/56d96ce9-5171-477f-8560-558ec3af0051%2Fclover-6.svg?v=1596057225851"
+      "https://cdn.glitch.com/56d96ce9-5171-477f-8560-558ec3af0051%2Fclover-6.svg?v=1596095596714"
   },
   {
     pairId: 8,
     src:
-      "https://cdn.glitch.com/56d96ce9-5171-477f-8560-558ec3af0051%2Fdiamonds-3.svg?v=1596057401996"
+      "https://cdn.glitch.com/56d96ce9-5171-477f-8560-558ec3af0051%2Fdiamonds-3.svg?v=1596095587942"
   }
 ];
 
@@ -109,6 +109,8 @@ for (let btn of playAgainBtns){
   btn.addEventListener("click", (e) => {
   currentUser = "";
   discoveredCards = [];
+  tries = 0;
+  unFlipCards(imgDivArray);
   e.target.parentElement.classList.add("hide");
   chooseUserDiv.classList.remove("hide");
   document.getElementById("username").value = "";
@@ -169,6 +171,11 @@ function scoreBarController(barId) {
         }
        
       }
+    },
+    
+    setUserLost(username) {
+      let userContainer = this.getUser(username);
+      userContainer.lastElementChild.innerHTML = `You lost. <i class="fas fa-mouse-pointer"></i> ${tries} tries``"Game Lost! :(";
     }
     
   };
@@ -224,19 +231,19 @@ function winGame(username) {
 
   scoresController.setUserTime(username, totalSeconds);
   
-  tries = 0;
-  
   imgsGrid.classList.add("hide");
   congratsDiv.classList.remove("hide");
 }
-function looseGame(){
+
+function looseGame(username){
   let triesSpan = document.getElementById("tries-span");
-  let triesInARow = tries -1;
-  
+  let triesInARow = tries - 1;
+  scoresController.setUserLost(username);
   triesSpan.textContent = triesInARow;
   imgsGrid.classList.add("hide");
   looseDiv.classList.remove("hide");
 }
+
 function areEqualCards(card1, card2) {
   return card1.getAttribute("data-pair") === card2.getAttribute("data-pair");
 }
@@ -251,6 +258,10 @@ function isFlipped(card) {
 
 function flipCards(cards) {
   cards.forEach(card => card.classList.add("flipped-cell"));
+}
+
+function unFlipCards(cards) {
+  cards.forEach(card => card.classList.remove("flipped-cell"));
 }
 
 function createGridContentArray(imgs) {
