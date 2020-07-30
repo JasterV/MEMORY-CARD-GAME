@@ -82,10 +82,9 @@ h2 {
 }
 
 .flipped-cell:hover {
-  position: relative;
-  transform: translateY(-6px);
-  
+  filter: brightness(1.2) drop-shadow(0 4px 3px hsla(208, 80%, 50%, 0.3));
 }
+
 
 @keyframes flip-out {
   100% {
