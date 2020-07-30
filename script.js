@@ -45,7 +45,11 @@ let playBtn = document.getElementById("play");
 let chooseUserDiv = document.querySelector(".choose-username");
 let imgsGrid = document.getElementById("images-grid");
 let congratsDiv = document.getElementById("congrats-container");
+let looseDiv = document.getElementById("loose-container");
 let playAgainBtns = document.querySelectorAll(".play-again-btn");
+let modeContainer =  document.getElementById("mode-container");
+let hardBtn = document.getElementById("hard-btn");
+let easyBtn = document.getElementById("easy-btn");
 
 let tries = 0;
 let hardMode = false;
@@ -77,7 +81,7 @@ imgDivArray.forEach(targetCard => {
           }
         } else {
           if(hardMode) {
-           // looseGame(currentUser);
+           looseGame(currentUser);
           } else {
             discoveredCards.pop();
 
@@ -93,11 +97,11 @@ imgDivArray.forEach(targetCard => {
   });
 });
 
-playBtn.addEventListener("click", playGameListener);
+playBtn.addEventListener("click", goToModePage);
 
 document.addEventListener("keydown", (event) => {
   if(!chooseUserDiv.classList.contains("hide") && event.which === 13){
-    playGameListener();
+    goToModePage();
   }
 });
 
@@ -108,9 +112,18 @@ for (let btn of playAgainBtns){
   e.target.parentElement.classList.add("hide");
   chooseUserDiv.classList.remove("hide");
   document.getElementById("username").value = "";
-});
+  });
 }
 
+easyBtn.addEventListener("click", () => {
+ hardMode = false;
+  startGame(currentUser);
+});
+
+hardBtn.addEventListener("click", () => {
+  hardMode = true;
+  startGame(currentUser);
+});
 
 /*--------------------------------------------------*/
 /*-------------------- OBJECTS ---------------------*/
@@ -147,8 +160,14 @@ function scoreBarController(barId) {
     setUserTime(username, seconds) {
       if (this.hasUser(username)) {
         let userContainer = this.getUser(username);
-        userContainer.lastElementChild.innerHTML = `<i class="fas fa-stopwatch"></i> ${Math.floor(seconds)} seconds`
+        if(!hardMode) {
+           userContainer.lastElementChild.innerHTML = `<i class="fas fa-stopwatch"></i> ${Math.floor(seconds)} seconds`
                                                     + ` <i class="fas fa-mouse-pointer"></i> ${tries} tries`;
+        } else {
+           userContainer.lastElementChild.innerHTML = `<i class="fas fa-stopwatch"></i> ${Math.floor(seconds)} seconds`
+                                                    + `(Hard Mode)`;
+        }
+       
       }
     }
     
@@ -166,15 +185,33 @@ function createUserScoreDiv(username) {
 /*----------------- USEFULL FUNCTIONS --------------*/
 /*--------------------------------------------------*/
 
-function playGameListener() {
+function goToModePage() {
   let username = document.getElementById("username").value;
   if (isValidUsername(username)) {
     currentUser = username;
-    
+    modeContainer.classList.remove("hide");
+    chooseUserDiv.classList.add("hide");
   }
 }
 
-function startGame()
+function startGame(username) {
+    startTime = Date.now();
+    scoresController.createPlayingUser(username);
+
+    shuffle(imgDivArray);
+
+    imgsGrid.innerHTML = "";
+    imgDivArray.forEach(img => {
+      imgsGrid.appendChild(img);
+    });
+
+    modeContainer.classList.add("hide");
+    imgsGrid.classList.remove("hide");
+
+    setTimeout(() => {
+      flipCards(imgDivArray);
+    }, 3000);
+}
 
 function isGameEnd(discoveredCards, cards) {
   return discoveredCards.length === cards.length;
@@ -193,8 +230,12 @@ function winGame(username) {
   congratsDiv.classList.remove("hide");
 }
 function looseGame(){
+  let triesSpan = document.getElementById("tries-span");
   let triesInARow = tries -1;
   
+  triesSpan.textContent = triesInARow;
+  imgsGrid.classList.add("hide");
+  looseDiv.classList.remove("hide");
 }
 function areEqualCards(card1, card2) {
   return card1.getAttribute("data-pair") === card2.getAttribute("data-pair");

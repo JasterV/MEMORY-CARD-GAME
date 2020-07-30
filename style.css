@@ -164,7 +164,7 @@ input[type="text"]:focus ~ .placeholder {
   padding: 1rem 3rem;
   font-size: 1rem;
   background: hsla(208, 80%, 60%, 1);
-  color: rgba(255,255,255,.9);
+  color: rgba(255,255,255,.95);
   border-radius: 5px;
   border: 1px solid hsla(208, 80%, 45%, 1);
   box-shadow: 0 3px 0 hsla(208, 80%, 45%, 1);
@@ -172,7 +172,6 @@ input[type="text"]:focus ~ .placeholder {
   transition: 150ms ease-out;
   cursor: pointer;
   font-weight: bold;
-  
 }
 
 .game-button:active {
@@ -213,7 +212,7 @@ strong {
   width: 90%;
   position: relative;
   z-index: 2;
-  filter: drop-shadow(6px 9px 6px rgba(12, 64, 110, 0.2));
+  filter: drop-shadow(0 9px 0 rgba(12, 64, 110, 0.1));
 }
 
 .score-title {
