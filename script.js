@@ -48,6 +48,7 @@ let congratsDiv = document.querySelector(".congrats-container");
 let playAgainBtn = document.getElementById("play-again-btn");
 
 let tries = 0;
+let hardMode = false;
 
 let imgDivArray = createGridContentArray(imgSrc);
 let discoveredCards = [];
@@ -71,48 +72,35 @@ imgDivArray.forEach(targetCard => {
 
           if (isGameEnd(discoveredCards, imgDivArray)) {
             setTimeout(() => {
-              finishGame(currentUser);
+              winGame(currentUser);
             }, 300);
           }
         } else {
-          discoveredCards.pop();
+          if(hardMode) {
+           // looseGame(currentUser);
+          } else {
+            discoveredCards.pop();
 
-          setTimeout(() => {
-            lastCard.classList.add("flipped-cell");
-            targetCard.classList.add("flipped-cell");
-          }, 500);
+            setTimeout(() => {
+              lastCard.classList.add("flipped-cell");
+              targetCard.classList.add("flipped-cell");
+            }, 500);
+          }
+          
         }
       }
     }
   });
 });
 
-playBtn.addEventListener("click", () => {
-  let username = document.getElementById("username").value;
-  if (isValidUsername(username)) {
-    currentUser = username;
-    startTime = Date.now();
+playBtn.addEventListener("click", playGameListener);
 
-    scoresController.createPlayingUser(username);
-
-    shuffle(imgDivArray);
-
-    imgsGrid.innerHTML = "";
-    imgDivArray.forEach(img => {
-      imgsGrid.appendChild(img);
-    });
-
-    chooseUserDiv.classList.add("hide");
-    imgsGrid.classList.remove("hide");
-
-    setTimeout(() => {
-      flipCards(imgDivArray);
-    }, 3000);
+document.addEventListener("keydown", (event) => {
+  if(!chooseUserDiv.classList.contains("hide") && event.which === 13){
+    playGameListener();
   }
 });
-window.addEventListener("keydown", (event) => {
-  if(!chooseUserDiv.classList.contains("hide")&& event.target.key ===) && 
-})
+
 playAgainBtn.addEventListener("click", () => {
   currentUser = "";
   discoveredCards = [];
@@ -175,11 +163,35 @@ function createUserScoreDiv(username) {
 /*----------------- USEFULL FUNCTIONS --------------*/
 /*--------------------------------------------------*/
 
+function playGameListener() {
+  let username = document.getElementById("username").value;
+  if (isValidUsername(username)) {
+    currentUser = username;
+    startTime = Date.now();
+
+    scoresController.createPlayingUser(username);
+
+    shuffle(imgDivArray);
+
+    imgsGrid.innerHTML = "";
+    imgDivArray.forEach(img => {
+      imgsGrid.appendChild(img);
+    });
+
+    chooseUserDiv.classList.add("hide");
+    imgsGrid.classList.remove("hide");
+
+    setTimeout(() => {
+      flipCards(imgDivArray);
+    }, 3000);
+  }
+}
+
 function isGameEnd(discoveredCards, cards) {
   return discoveredCards.length === cards.length;
 }
 
-function finishGame(username) {
+function winGame(username) {
   let finalTimeSpan = document.getElementById("user-seconds");
   let totalSeconds = (Date.now() - startTime) / 1000;
   finalTimeSpan.textContent = `${Math.floor(totalSeconds)} seconds`;
