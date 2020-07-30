@@ -72,12 +72,19 @@ h2 {
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center center;
-  filter: drop-shadow(0 4px 3px rgba(0, 0, 0, 0.2));
+  filter: drop-shadow(0 4px 3px hsla(208, 80%, 50%, 0.3));
 }
 
 .flipped-cell {
   background-image: url("https://cdn.glitch.com/56d96ce9-5171-477f-8560-558ec3af0051%2Fcard-back.svg?v=1596059407981") !important;
   animation: flip-out 500ms forwards;
+  transition: 300ms ease-out;
+}
+
+.flipped-cell:hover {
+  position: relative;
+  transform: translateY(-6px);
+  
 }
 
 @keyframes flip-out {
@@ -300,7 +307,12 @@ strong {
   }
   
   #user-scores h2 {
-    margin-top: 18px;
+    margin-top: 30px;
+    margin-bottom: 0;
+  }
+  
+  .user-scores {
+    padding-top: 0;
   }
 }
 
