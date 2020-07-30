@@ -275,6 +275,17 @@ strong {
     background: #479EEB; 
 }
 
+#score-responsive {
+  position: absolute;
+  font-size: 30px;
+  top: -255px;
+  left: 50px;
+  color: hsla(208, 80%, 60%, 1);
+  z-index: 3;
+  opacity: 0;
+  pointer-events: none;
+}
+
 @media (max-width: 980px) {
   body {
     padding: 0 90px;
@@ -356,7 +367,18 @@ strong {
 
 @media (max-width: 500px) {
   body {
-    padding: 90px 0;
+    padding: 0;
+  }
+  
+  .score-container {
+    position: absolute;
+    top: 0;
+    max-height: 100%;
+    min-height: 100%;
+    bottom: 0;
+    margin-top: 0;
+    opacity: 0;
+    pointer-events: none;
   }
   
   .cards-row {
@@ -364,14 +386,15 @@ strong {
     margin-top: 0;
   }
   
-  .score-container {
-    max-height: 96px;
-    min-height: auto;
+  .fa-trophy {
+    font-size: 78vh;
+    opacity: .3;
+    left: 53px;
+    top: 80px;
   }
   
-  .fa-trophy {
-    font-size: 18vh;
-    left: 53px;
-    top: -22px;
+  #score-responsive {
+    opacity: .3;
+    pointer-events: all;
   }
 }
