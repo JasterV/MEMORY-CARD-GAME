@@ -283,7 +283,12 @@ strong {
   font-size: 34px;
   opacity: 0;
   pointer-events: none;
-  transition: 300ms ease-out;
+  transition: color 300ms ease-out, opacity 300ms ease-out;
+  cursor: pointer;
+}
+
+#score-toggle:hover {
+  color: hsla(208, 80%, 50%, .6)
 }
 
 @media (max-width: 980px) {
@@ -375,9 +380,11 @@ strong {
   }
   
   .score-container {
-    opacity: 0;
+    opacity: 1;
     pointer-events: none;
     position: absolute;
+    height: 100vh;
+    z-index: 2;
   }
   
   .cards-row {
@@ -393,5 +400,10 @@ strong {
   #score-toggle {
     opacity: 1;
     pointer-events: all;
+  }
+  
+  .images-grid {
+    height: 65%;
+    padding-top: 22vh;
   }
 }

@@ -308,3 +308,5 @@ usernameInput.addEventListener("focusout", () => {
     placeholder.style.opacity = "1";
   }
 });
+
+// Show responsive leaderboard
