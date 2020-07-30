@@ -67,13 +67,12 @@ imgDivArray.forEach(targetCard => {
 
       if (discoveredCards.length % 2 == 0) {
         discoveredCards.push(targetCard);
-        tries++;
-        console.log(tries);
       } else {
         let lastCard = discoveredCards[discoveredCards.length - 1];
+        tries++;
         if (areEqualCards(targetCard, lastCard)) {
           discoveredCards.push(targetCard);
-
+          
           if (isGameEnd(discoveredCards, imgDivArray)) {
             setTimeout(() => {
               winGame(currentUser);
@@ -87,7 +86,7 @@ imgDivArray.forEach(targetCard => {
             if (hardMode) {
               looseGame(currentUser);
             }
-          }, 500);
+          }, 300);
         }
       }
     }
