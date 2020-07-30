@@ -98,6 +98,8 @@ playBtn.addEventListener("click", goToModePage);
 document.addEventListener("keydown", event => {
   if (!chooseUserDiv.classList.contains("hide") && event.which === 13) {
     goToModePage();
+  } else if((!looseDiv.classList.contains("hide") || !congratsDiv.classList.contains("hide")) && event.which === 13){
+    
   }
 });
 
@@ -107,7 +109,11 @@ for (let btn of playAgainBtns) {
     discoveredCards = [];
     tries = 0;
     unFlipCards(imgDivArray);
-    e.target.parentElement.classList.add("hide");
+    if(e.which === 13){
+      
+    } else {
+       e.target.parentElement.classList.add("hide");
+    }
     chooseUserDiv.classList.remove("hide");
     document.getElementById("username").value = "";
   });
