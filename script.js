@@ -72,7 +72,7 @@ imgDivArray.forEach(targetCard => {
         tries++;
         if (areEqualCards(targetCard, lastCard)) {
           discoveredCards.push(targetCard);
-          
+
           if (isGameEnd(discoveredCards, imgDivArray)) {
             setTimeout(() => {
               winGame(currentUser);
@@ -98,25 +98,17 @@ playBtn.addEventListener("click", goToModePage);
 document.addEventListener("keydown", event => {
   if (!chooseUserDiv.classList.contains("hide") && event.which === 13) {
     goToModePage();
-  } else if((!looseDiv.classList.contains("hide") || !congratsDiv.classList.contains("hide")) && event.which === 13){
-    
+  } else if (
+    (!looseDiv.classList.contains("hide") ||
+      !congratsDiv.classList.contains("hide")) &&
+    event.which === 13
+  ) {
+    playAgain();
   }
 });
 
 for (let btn of playAgainBtns) {
-  btn.addEventListener("click", e => {
-    currentUser = "";
-    discoveredCards = [];
-    tries = 0;
-    unFlipCards(imgDivArray);
-    if(e.which === 13){
-      
-    } else {
-       e.target.parentElement.classList.add("hide");
-    }
-    chooseUserDiv.classList.remove("hide");
-    document.getElementById("username").value = "";
-  });
+  btn.addEventListener("click", playAgain);
 }
 
 easyBtn.addEventListener("click", () => {
@@ -202,6 +194,19 @@ function goToModePage() {
     modeContainer.classList.remove("hide");
     chooseUserDiv.classList.add("hide");
   }
+}
+
+function playAgain() {
+  currentUser = "";
+  discoveredCards = [];
+  tries = 0;
+  unFlipCards(imgDivArray);
+
+  looseDiv.classList.add("hide");
+  congratsDiv.classList.add("hide");
+
+  chooseUserDiv.classList.remove("hide");
+  document.getElementById("username").value = "";
 }
 
 function startGame(username) {

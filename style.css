@@ -356,6 +356,22 @@ strong {
 
 @media (max-width: 500px) {
   body {
-    padding: 0;
+    padding: 90px 0;
+  }
+  
+  .cards-row {
+    height: 100%;
+    margin-top: 0;
+  }
+  
+  .score-container {
+    max-height: 96px;
+    min-height: auto;
+  }
+  
+  .fa-trophy {
+    font-size: 18vh;
+    left: 53px;
+    top: -22px;
   }
 }
