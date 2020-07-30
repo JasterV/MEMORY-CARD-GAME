@@ -110,7 +110,9 @@ playBtn.addEventListener("click", () => {
     }, 3000);
   }
 });
-
+window.addEventListener("keydown", (event) => {
+  if(!chooseUserDiv.classList.contains("hide")&& event.target.key ===) && 
+})
 playAgainBtn.addEventListener("click", () => {
   currentUser = "";
   discoveredCards = [];
