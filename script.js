@@ -175,8 +175,8 @@ function scoreBarController(barId) {
 
     setUserLost(username) {
       let userContainer = this.getUser(username);
-      userContainer.lastElementChild.innerHTML = `Game Lost! Made <img class="card-pairs" src="https://cdn.glitch.com/56d96ce9-5171-477f-8560-558ec3af0051%2Fpair-card.svg?v=1596096318024"> ${tries -
-        1} pairs`;
+      userContainer.lastElementChild.innerHTML = `<p style="display:flex;align-items:center;justify-content:center">Lost! - ${tries -
+        1} <img class="card-pairs" src="https://cdn.glitch.com/56d96ce9-5171-477f-8560-558ec3af0051%2Fpair-card.svg?v=1596096914492"> in a row! </p>`;
     }
   };
 }
