@@ -12,7 +12,7 @@
 > A Memory Game that proves your memory skills trying you to assert 8 pairs of cards!
 
 
-### 🏠 [Homepage](https://github.com/JasterV/COVID-19-CHALLENGE)
+### 🏠 [Homepage](https://jasterv.github.io/MEMORY-CARD-GAME/)
 
 Try it out and have fun!
 
