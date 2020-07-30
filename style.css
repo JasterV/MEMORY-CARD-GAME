@@ -98,7 +98,7 @@ h2 {
   position: relative;
 }
 
-.choose-username {
+.choose-username, #mode-container {
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -106,10 +106,19 @@ h2 {
   justify-content: center;
 }
 
-.choose-username h1, .final-container h1 {
+.choose-username h1, .final-container h1, #mode-container h1 {
   margin: 0;
   padding-bottom: 1rem;
   color: hsla(208, 80%, 50%, 0.8);
+}
+
+.mode-btns {
+  display: flex;
+  flex-direction: row;
+}
+
+#hard-btn {
+  margin-left: 1rem;
 }
 
 input[type="text"] {
@@ -155,13 +164,15 @@ input[type="text"]:focus ~ .placeholder {
   padding: 1rem 3rem;
   font-size: 1rem;
   background: hsla(208, 80%, 60%, 1);
-  color: white;
+  color: rgba(255,255,255,.9);
   border-radius: 5px;
   border: 1px solid hsla(208, 80%, 45%, 1);
   box-shadow: 0 3px 0 hsla(208, 80%, 45%, 1);
   outline: none;
   transition: 150ms ease-out;
   cursor: pointer;
+  font-weight: bold;
+  
 }
 
 .game-button:active {

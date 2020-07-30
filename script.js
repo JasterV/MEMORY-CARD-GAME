@@ -44,8 +44,8 @@ let imgSrc = [
 let playBtn = document.getElementById("play");
 let chooseUserDiv = document.querySelector(".choose-username");
 let imgsGrid = document.getElementById("images-grid");
-let congratsDiv = document.querySelector(".congrats-container");
-let playAgainBtn = document.getElementById("play-again-btn");
+let congratsDiv = document.getElementById("congrats-container");
+let playAgainBtns = document.querySelectorAll(".play-again-btn");
 
 let tries = 0;
 let hardMode = false;
@@ -101,13 +101,16 @@ document.addEventListener("keydown", (event) => {
   }
 });
 
-playAgainBtn.addEventListener("click", () => {
+for (let btn of playAgainBtns){
+  btn.addEventListener("click", (e) => {
   currentUser = "";
   discoveredCards = [];
-  congratsDiv.classList.add("hide");
+  e.target.parentElement.classList.add("hide");
   chooseUserDiv.classList.remove("hide");
   document.getElementById("username").value = "";
 });
+}
+
 
 /*--------------------------------------------------*/
 /*-------------------- OBJECTS ---------------------*/
@@ -167,25 +170,11 @@ function playGameListener() {
   let username = document.getElementById("username").value;
   if (isValidUsername(username)) {
     currentUser = username;
-    startTime = Date.now();
-
-    scoresController.createPlayingUser(username);
-
-    shuffle(imgDivArray);
-
-    imgsGrid.innerHTML = "";
-    imgDivArray.forEach(img => {
-      imgsGrid.appendChild(img);
-    });
-
-    chooseUserDiv.classList.add("hide");
-    imgsGrid.classList.remove("hide");
-
-    setTimeout(() => {
-      flipCards(imgDivArray);
-    }, 3000);
+    
   }
 }
+
+function startGame()
 
 function isGameEnd(discoveredCards, cards) {
   return discoveredCards.length === cards.length;
@@ -203,7 +192,10 @@ function winGame(username) {
   imgsGrid.classList.add("hide");
   congratsDiv.classList.remove("hide");
 }
-
+function looseGame(){
+  let triesInARow = tries -1;
+  
+}
 function areEqualCards(card1, card2) {
   return card1.getAttribute("data-pair") === card2.getAttribute("data-pair");
 }
