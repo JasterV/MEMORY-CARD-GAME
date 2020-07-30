@@ -250,11 +250,18 @@ strong {
   margin-left: 6px;
 }
 
-@media (max-height: 865px) {
-  #user-scores {
-    max-height: 73%;
-    overflow-y: auto;
-  }
+::-webkit-scrollbar {
+    width: 12px;
+}
+ 
+::-webkit-scrollbar-track {
+    background: #D1E7FA; 
+    border-radius: 10px;
+}
+ 
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: #479EEB; 
 }
 
 @media (max-width: 980px) {
@@ -316,6 +323,11 @@ strong {
 }
 
 @media (max-width: 860px) {
+  #user-scores {
+    max-height: 73%;
+    overflow-y: auto;
+  }
+  
   .fa-trophy {
     font-size: 27vh;
     bottom: 0;
