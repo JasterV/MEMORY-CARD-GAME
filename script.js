@@ -214,7 +214,7 @@ function startGame(username) {
   scoresController.createPlayingUser(username);
 
   shuffle(imgDivArray);
-
+  
   imgsGrid.innerHTML = "";
   imgDivArray.forEach(img => {
     imgsGrid.appendChild(img);
@@ -310,3 +310,9 @@ usernameInput.addEventListener("focusout", () => {
 });
 
 // Show responsive leaderboard
+let scoreToggle = document.getElementById("score-toggle")
+let scoreContainer = document.getElementById("score-container")
+
+scoreToggle.addEventListener("click", () => {
+  scoreContainer.classList.toggle("fade-toggle")
+})

@@ -279,7 +279,7 @@ strong {
   position: absolute;
   top: 30px;
   left: 48px;
-  z-index: 2;
+  z-index: 3;
   font-size: 34px;
   opacity: 0;
   pointer-events: none;
@@ -380,11 +380,18 @@ strong {
   }
   
   .score-container {
-    opacity: 1;
+    opacity: 0;
     pointer-events: none;
-    position: absolute;
     height: 100vh;
     z-index: 2;
+    margin-top: 0;
+    position: relative;
+    top: -2px;
+    transition: opacity 300ms ease-out;
+  }
+  
+  .fade-toggle {
+    opacity: 1;
   }
   
   .cards-row {
@@ -393,7 +400,7 @@ strong {
   
   .left-card {
     position: absolute;
-    top: 0;
+    top: -2px;
     padding: 0 2rem;
   }
   
@@ -405,5 +412,12 @@ strong {
   .images-grid {
     height: 65%;
     padding-top: 22vh;
+  }
+  
+  .score-container .fa-trophy {
+    font-size: 81vh;
+    opacity: .2;
+    bottom: 0;
+    transform: translateX(-62%) translateY(26%);
   }
 }
