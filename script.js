@@ -225,7 +225,7 @@ function startGame(username) {
 
   setTimeout(() => {
     flipCards(imgDivArray);
-  }, 3000);
+  }, 5000);
 }
 
 function isGameEnd(discoveredCards, cards) {
