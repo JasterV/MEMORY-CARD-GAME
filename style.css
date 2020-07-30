@@ -112,6 +112,10 @@ h2 {
   color: hsla(208, 80%, 50%, 0.8);
 }
 
+#mode-container h1 {
+  padding-bottom: 2rem;
+}
+
 .mode-btns {
   display: flex;
   flex-direction: row;
@@ -314,9 +318,9 @@ strong {
   
   .score-container {
     margin-left: 0;
-    margin-top: 2rem;
+    margin: 2rem 0;
     width: 100%;
-    min-height: 170px;
+    min-height: 130px;
   }
   
   .left-card, .score-container {
@@ -345,7 +349,6 @@ strong {
   }
   
   #user-scores h2 {
-    margin-top: 30px;
     margin-bottom: 0;
   }
   
