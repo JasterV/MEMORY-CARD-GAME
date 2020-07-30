@@ -1,10 +1,11 @@
 <h1 align="center">Welcome to Memory Card Game 👋</h1>
 <p>
+   [![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#-contributors-)
   <img alt="Version" src="https://img.shields.io/badge/version-1.5-blue.svg?cacheSeconds=2592000" />
   <a href="https://choosealicense.com/licenses/mit/" target="_blank">
     <img alt="License: MIT License" src="https://img.shields.io/badge/License-MIT License-yellow.svg" />
   </a>
-  [![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#-contributors-)
+ 
 </p>
 
 
